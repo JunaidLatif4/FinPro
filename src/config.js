@@ -1,4 +1,6 @@
 const config = {
+  STRIPE_KEY: "pk_test_51HhOLjIAWwtv4OdWA43F34LppjskibWniEWYm0UzCxjnv3sR8i73OdzeUiDw4MfqMuy6vZqNZy14vkAAdKCvMuP500AtdAz2Dl",
+  MAX_ATTACHMENT_SIZE: 5000000,
   s3: {
     REGION: "us-east-1",
     BUCKET: "finpro-app-upload",
