@@ -28,7 +28,7 @@ export default function Routes() {
       <AuthenticatedRoute exact path="/notes/new">
         <NewNote />
       </AuthenticatedRoute>
-      <AuthenticatedRoute exact path="/notes/:id">
+      <AuthenticatedRoute exact path="/finpro/:id">
         <Notes />
       </AuthenticatedRoute>
       {/* Finally, catch all unmatched routes */}
