@@ -6,6 +6,7 @@ import "./Home.css";
 import { API } from "aws-amplify";
 import { BsPencilSquare } from "react-icons/bs";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
@@ -60,11 +61,20 @@ export default function Home() {
       </>
     );
   }
+
   function renderLander() {
     return (
       <div className="lander">
         <h1>Finpro</h1>
         <p className="text-muted">The smartest way to make smart decisions</p>
+        <div className="pt-3">
+          <Link to="/login" className="btn btn-info btn-lg mr-3">
+            Login
+          </Link>
+          <Link to="/signup" className="btn btn-success btn-lg">
+            Signup
+          </Link>
+        </div>
       </div>
     );
   }
