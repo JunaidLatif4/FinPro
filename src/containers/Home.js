@@ -33,7 +33,7 @@ export default function Home() {
   }, [isAuthenticated]);
 
   function loadNotes() {
-    return API.put("finpro", "/finpro");
+    return API.get("finpro", "/finpro");
     }
 
   function renderNotesList(notes) {
