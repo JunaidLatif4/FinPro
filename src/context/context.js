@@ -129,9 +129,10 @@ function setData(type, state) {
 				datasets: [],
 			};
 			let datalabels = ydata.map((l) => ({ plan: l.plan, color: l.color }));
+			yearData.labels = [new Date().getFullYear(), new Date().getFullYear() + 1, new Date().getFullYear() + 2, new Date().getFullYear() + 3, new Date().getFullYear() + 4];
 			let datasets = [];
 			let data = {};
-			for (let i = 0; i < ydata.length; i++) {
+			for (let i = 0; i < yearData.labels.length; i++) {
 				ydata.forEach((d, id) => {
 					data[id] = [];
 					if (d.type === 'Yearly') {
@@ -141,7 +142,7 @@ function setData(type, state) {
 					} else if (d.type === 'Monthly') {
 						data[id].push(parseFloat(d.price * d.purchasers * 12));
 					}
-					for (let j = 0; j < ydata.length; j++) {
+					for (let j = 0; j < yearData.labels.length; j++) {
 						data[id].push(parseFloat(data[id][j]) + (20 / 100) * parseFloat(data[id][j]));
 					}
 				});
@@ -151,7 +152,7 @@ function setData(type, state) {
 					datasets.push(data[i]);
 				}
 			}
-			yearData.labels = [new Date().getFullYear(), new Date().getFullYear() + 1, new Date().getFullYear() + 2, new Date().getFullYear() + 3, new Date().getFullYear() + 4];
+
 			datalabels.forEach((label, id) => {
 				yearData.datasets[id] = {};
 				if (label.plan === 'Silver Plan' || label.plan === 'Silver') {
@@ -168,6 +169,7 @@ function setData(type, state) {
 				yearData.datasets[id].data = datasets[id];
 				yearData.datasets[id].label = label.plan;
 			});
+			console.log(yearData);
 			return yearData;
 		case 'quarter':
 			let quarterData;
@@ -175,9 +177,10 @@ function setData(type, state) {
 			quarterData = { labels: [], datasets: [] };
 
 			let qdatalabels = qdata.map((l) => ({ plan: l.plan, color: l.color }));
+			quarterData.labels = ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'];
 			let qdatasets = [];
 			let dataq = {};
-			for (let i = 0; i < qdata.length; i++) {
+			for (let i = 0; i < quarterData.labels.length; i++) {
 				qdata.forEach((d, id) => {
 					dataq[id] = [];
 					if (d.type === 'Yearly') {
@@ -187,7 +190,7 @@ function setData(type, state) {
 					} else if (d.type === 'Monthly') {
 						dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 					}
-					for (let j = 0; j < qdata.length; j++) {
+					for (let j = 0; j < quarterData.labels.length; j++) {
 						dataq[id].push(parseFloat(dataq[id][j]) + (20 / 100) * parseFloat(dataq[id][j]));
 					}
 				});
@@ -198,7 +201,6 @@ function setData(type, state) {
 					}
 				}
 			}
-			quarterData.labels = ['Jan-Mar', 'Apr-Jun', 'Jul-Sep', 'Oct-Dec'];
 
 			qdatalabels.forEach((label, id) => {
 				quarterData.datasets[id] = {};
@@ -225,7 +227,14 @@ function setData(type, state) {
 			let mdatalabels = mdata.map((l) => ({ plan: l.plan, color: l.color }));
 			let mdatasets = [];
 			let datam = {};
-			for (let i = 0; i < mdata.length; i++) {
+			monthData.labels = [
+				getMonthName(new Date().getMonth() + 1),
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth() + 1),
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth() + 1),
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth() + 1),
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth() + 1),
+			];
+			for (let i = 0; i < monthData.labels.length; i++) {
 				mdata.forEach((d, id) => {
 					datam[id] = [];
 					if (d.type === 'Yearly') {
@@ -235,7 +244,7 @@ function setData(type, state) {
 					} else if (d.type === 'Monthly') {
 						datam[id].push(parseFloat(d.price * d.purchasers));
 					}
-					for (let j = 0; j < mdata.length; j++) {
+					for (let j = 0; j < monthData.labels.length; j++) {
 						datam[id].push(parseFloat(datam[id][j]) + (20 / 100) * parseFloat(datam[id][j]));
 					}
 				});
@@ -245,13 +254,6 @@ function setData(type, state) {
 					}
 				}
 			}
-			monthData.labels = [
-				getMonthName(new Date().getMonth() + 1),
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth() + 1),
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth() + 1),
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth() + 1),
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth() + 1),
-			];
 
 			mdatalabels.forEach((label, id) => {
 				monthData.datasets[id] = {};
