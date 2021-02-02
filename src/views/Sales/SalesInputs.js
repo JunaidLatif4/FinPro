@@ -257,7 +257,7 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 												<td>{input.hire}</td>
 												<td>{getMonthName(new Date(input.startDate).getMonth() + 1) + ' ' + new Date(input.startDate).getFullYear()}</td>
 												<td>${input.salary}</td>
-												<td>%{input.taxes}</td>
+												<td>{input.taxes}%</td>
 												<td>${input.commissions}</td>
 												<td>
 													<span>
