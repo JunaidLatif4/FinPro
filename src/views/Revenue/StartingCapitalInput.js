@@ -167,7 +167,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 														<label htmlFor='source' className='form-label'>
 															Source
 														</label>
-														<input type='text' name='source' value={startingCapitalForm.source} onChange={handleRevenueChange} className='form-control' id='source' placeholder='Source' required />
+														<input type='text' name='source' value={startingCapitalForm.source} onChange={handleRevenueChange} className='form-control' id='source' placeholder='i.e. Seed Round' required />
 													</div>
 												</div>
 												<div className='row g-3'>

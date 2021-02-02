@@ -187,7 +187,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 														<label htmlFor='plan' className='form-label'>
 															Plan
 														</label>
-														<input type='text' name='plan' value={revenueForm.plan} onChange={handleRevenueChange} className='form-control' id='plan' placeholder='Plan' required />
+														<input type='text' name='plan' value={revenueForm.plan} onChange={handleRevenueChange} className='form-control' id='plan' placeholder='Plan Name' required />
 													</div>
 													<div className='col-12 col-md-6 mb-3'>
 														<label htmlFor='price' className='form-label'>
@@ -202,7 +202,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 														<label htmlFor='purchasers' className='form-label'>
 															Purchasers
 														</label>
-														<input type='text' name='purchasers' value={revenueForm.purchasers} onChange={handleRevenueChange} className='form-control' id='purchasers' placeholder='Purchasers' required />
+														<input type='text' name='purchasers' value={revenueForm.purchasers} onChange={handleRevenueChange} className='form-control' id='purchasers' placeholder='Number of Purchasers' required />
 													</div>
 												</div>
 												<div className='row g-3'>

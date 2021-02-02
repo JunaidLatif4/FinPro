@@ -187,7 +187,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='value' className='form-label'>
 																Credit Card Processing Fees
 															</label>
-															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='Credit Card Processing Fees' required />
+															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='i.e. Stripe %' required />
 														</div>
 													</div>
 													<div className='row g-3'>
@@ -224,7 +224,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>${expInp.cost}</td>
+												<td>{expInp.cost}</td>
 												<td>
 													<span>
 														<i className='fe fe-edit edit-icon' onClick={() => handleEditPlan(expInp._id, expInp)}></i>
@@ -258,7 +258,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='value' className='form-label'>
 																Paid User Acquisition
 															</label>
-															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='Credit Card Processing Fees' required />
+															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='Channel Name' required />
 														</div>
 													</div>
 													<div className='row g-3'>
@@ -266,7 +266,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='cost' className='form-label'>
 																Cost
 															</label>
-															<input type='text' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='Cost' required />
+															<input type='text' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='Cost Per New Purchaser' required />
 														</div>
 													</div>
 												</DialogContent>
