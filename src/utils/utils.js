@@ -122,33 +122,6 @@ function quarter(digit, year) {
 			return 'Jul-Sep ' + year;
 		case 3:
 			return 'Oct-Dec ' + year;
-
-		case 4:
-			return 'Jan-Mar ' + year;
-		case 5:
-			return 'Apr-Jun ' + year;
-		case 6:
-			return 'Jul-Sep ' + year;
-		case 7:
-			return 'Oct-Dec ' + year;
-
-		case 8:
-			return 'Jan-Mar ' + year;
-		case 9:
-			return 'Apr-Jun ' + year;
-		case 10:
-			return 'Jul-Sep ' + year;
-		case 11:
-			return 'Oct-Dec ' + year;
-
-		case 12:
-			return 'Jan-Mar ' + year;
-		case 13:
-			return 'Apr-Jun ' + year;
-		case 14:
-			return 'Jul-Sep ' + year;
-		case 15:
-			return 'Oct-Dec ' + year;
 		default:
 			return;
 	}
