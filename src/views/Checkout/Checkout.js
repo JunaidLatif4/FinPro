@@ -74,7 +74,7 @@ function Checkout() {
 		<div>
 			<input type='checkbox' checked={subscribe} id='sub' onChange={(e) => setSubscribe(e.target.checked)} /> <label htmlFor='sub'>Subscribe</label>
 			<br />
-			<StripeCheckout token={onToken} stripeKey='pk_test_51HQQAWL2QqDUeeFIhi7RBSjCZ538rvHf2Nsk9EJx2u4cXne5JnQguw8UKMNaMu7lKM0kun1pmoAL1TSo91UHfSOo00dDP9BK5q' />
+			<StripeCheckout token={onToken} stripeKey='pk_live_51HhOLjIAWwtv4OdWpNl9JHfGHwMkAvxKjTdDTJUhagPJZoisrNrYB63RNPSeGZAwQF6sSojTwFzjRgZEdYjJ0A6H002yGU7tnd' />
 		</div>
 	);
 }
