@@ -193,7 +193,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 														<label htmlFor='price' className='form-label'>
 															Price
 														</label>
-														<input type='text' name='price' value={revenueForm.price} onChange={handleRevenueChange} className='form-control' id='price' placeholder='Price' required />
+														<input type='text' name='price' value={revenueForm.price} onChange={handleRevenueChange} className='form-control' id='price' placeholder='299.99' required />
 													</div>
 												</div>
 
