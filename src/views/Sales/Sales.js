@@ -341,7 +341,10 @@ function Sales() {
 		</div>
 	) : (
 		<div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
-			<strong>Please subscribe our product to use the app</strong>
+			<strong>We think you'll like it here! Choose a free trial to get started. </strong>
+			<button onClick={() => history.push('/pricing')} className='btn btn-custom btn-padd'>
+				Manage plan
+			</button>
 			<button onClick={handleCloseAlert} type='button' className='close' data-dismiss='alert' aria-label='Close'>
 				<span aria-hidden='true'>×</span>
 			</button>
