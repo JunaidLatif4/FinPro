@@ -287,6 +287,14 @@ function Billing() {
 						</div>
 						<div className='row g-3'>
 							<div className='col-12 col-md-12 mb-3'>
+								<label htmlFor='address' className='form-label'>
+									Address
+								</label>
+								<input type='text' name='address' value={paymentForm.address} onChange={handlePaymentFormChange} className='form-control' id='address' placeholder='Address' required />
+							</div>
+						</div>
+						<div className='row g-3'>
+							<div className='col-12 col-md-12 mb-3'>
 								<label htmlFor='value' className='form-label'>
 									City
 								</label>
@@ -299,14 +307,6 @@ function Billing() {
 									State
 								</label>
 								<input type='text' name='state' value={paymentForm.state} onChange={handlePaymentFormChange} className='form-control' id='state' placeholder='State' required />
-							</div>
-						</div>
-						<div className='row g-3'>
-							<div className='col-12 col-md-12 mb-3'>
-								<label htmlFor='address' className='form-label'>
-									Address
-								</label>
-								<input type='text' name='address' value={paymentForm.address} onChange={handlePaymentFormChange} className='form-control' id='address' placeholder='Address' required />
 							</div>
 						</div>
 						<div className='row g-3'>
