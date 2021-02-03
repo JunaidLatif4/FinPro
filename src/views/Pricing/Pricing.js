@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/context';
 import { useHistory } from 'react-router-dom';
 import { subscription, cancelSubscription } from '../../context/subscription-service';
 import { set } from 'numeral';
-const planlist = ['SaaS business Model', 'Input Variables', 'Charts', 'Reports', '30-days free trial'];
+const planlist = ['SaaS business Model', 'Input Variables', 'Charts', 'Reports', '30-day free trial'];
 
 function Pricing() {
 	const history = useHistory();

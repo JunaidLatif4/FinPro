@@ -125,9 +125,9 @@ function Billing() {
 		e.preventDefault();
 		setOpen(false);
 		setPaymentForm({
+			address: '',
 			city: '',
 			state: '',
-			address: '',
 			cardNumber: '',
 			expiryDate: '',
 			cvc: '',
@@ -148,9 +148,9 @@ function Billing() {
 		}
 		console.log(paymentForm);
 		let data = {
+			address: paymentForm.address,
 			city: paymentForm.city,
 			state: paymentForm.state,
-			address: paymentForm.address,
 			number: paymentForm.cardNumber.split(' ').join(''),
 			exp_month: paymentForm.expiryDate ? paymentForm.expiryDate.split('/')[0].trim() : '',
 			exp_year: paymentForm.expiryDate ? paymentForm.expiryDate.split('/')[1].trim() : '',
@@ -171,9 +171,9 @@ function Billing() {
 				setMsg2(addPaymentMethod.data.message);
 				setErr2('');
 				setPaymentForm({
+					address: '',
 					city: '',
 					state: '',
-					address: '',
 					cardNumber: '',
 					expiryDate: '',
 					cvc: '',
@@ -346,7 +346,7 @@ function Billing() {
 					<div className='card pt-4 pb-4 pl-4 pr-4'>
 						<div className='row'>
 							<div className='col'>
-								<div className='billing-plan'>{purchasing && purchasing.length > 0 ? "You're currently on intro plan" : 'You did not have any plan'}</div>
+								<div className='billing-plan'>{purchasing && purchasing.length > 0 ? "You're currently on the Intro Plan" : 'You do not have any plan'}</div>
 							</div>
 							<div className='col-auto'>
 								<button onClick={() => history.push('/pricing')} className='btn btn-custom btn-padd'>
