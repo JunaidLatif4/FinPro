@@ -140,7 +140,7 @@ function SignUp() {
 									<span className='sr-only'>Loading...</span>
 								</div>
 							)}
-							{!loader && 'Sign up free account'}
+							{!loader && 'Sign up'}
 						</button>
 
 						<div className='text-center'>
