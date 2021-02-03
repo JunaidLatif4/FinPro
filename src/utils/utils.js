@@ -115,13 +115,13 @@ export const getMonthName = (digit) => {
 function quarter(digit, year) {
 	switch (digit) {
 		case 0:
-			return 'Jan-Mar ' + year;
+			return 'Q1 ' + year;
 		case 1:
-			return 'Apr-Jun ' + year;
+			return 'Q2 ' + year;
 		case 2:
-			return 'Jul-Sep ' + year;
+			return 'Q3 ' + year;
 		case 3:
-			return 'Oct-Dec ' + year;
+			return 'Q4 ' + year;
 		default:
 			return;
 	}
@@ -131,7 +131,7 @@ export const setQuarterLabel = () => {
 	let arr = [];
 	let today = new Date().getFullYear();
 	for (let i = 0; i < 5; i++) {
-		for (let j = 0; j < 3; j++) {
+		for (let j = 0; j < 4; j++) {
 			arr.push(quarter(j, today + i));
 		}
 	}
@@ -145,13 +145,13 @@ export const getQuarter = (data, date = 'startDate', value) => {
 	// data.slice(Math.max(data.length - 5, 0));
 	data.forEach((d) => {
 		if (new Date(d[date]).getMonth() === 0 || new Date(d[date]).getMonth() === 1 || new Date(d[date]).getMonth() === 2) {
-			Q1.push({ ...d, quarter: 'Jan-Mar ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q1 ' + new Date(d[date]).getFullYear() });
 		} else if (new Date(d[date]).getMonth() === 3 || new Date(d[date]).getMonth() === 4 || new Date(d[date]).getMonth() === 5) {
-			Q1.push({ ...d, quarter: 'Apr-Jun ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
 		} else if (new Date(d[date]).getMonth() === 6 || new Date(d[date]).getMonth() === 7 || new Date(d[date]).getMonth() === 8) {
-			Q1.push({ ...d, quarter: 'Jul-Sep ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
 		} else if (new Date(d[date]).getMonth() === 9 || new Date(d[date]).getMonth() === 10 || new Date(d[date]).getMonth() === 11) {
-			Q1.push({ ...d, quarter: 'Oct-Dec ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
 		}
 	});
 	// console.log(Q1);

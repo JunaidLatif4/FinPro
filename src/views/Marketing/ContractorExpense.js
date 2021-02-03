@@ -164,7 +164,7 @@ function ExpenseInputs({ marketingId, expenseInputs, setMsg, setErr, setAlertCla
 								<label htmlFor='value' className='form-label'>
 									{dialogSetting.title}
 								</label>
-								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='Credit Card Processing Fees' required />
+								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='Name' required />
 							</div>
 						</div>
 						<div className='row g-3'>

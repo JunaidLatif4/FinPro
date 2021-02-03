@@ -174,7 +174,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 								<label htmlFor='value' className='form-label'>
 									{dialogSetting.title}
 								</label>
-								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='Credit Card Processing Fees' required />
+								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='Name' required />
 							</div>
 						</div>
 						<div className='row g-3'>
@@ -199,7 +199,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										<label htmlFor='perEmployee' className='form-label'>
 											{dialogSetting.employee}
 										</label>
-										<input type='text' name='perEmployee' value={expenseForm.perEmployee} onChange={handleInputChange} className='form-control' id='perEmployee' placeholder={dialogSetting.employee} />
+										<input type='text' name='perEmployee' value={expenseForm.perEmployee} onChange={handleInputChange} className='form-control' id='perEmployee' placeholder={dialogSetting.employee} hidden/>
 									</div>
 								)
 							)}

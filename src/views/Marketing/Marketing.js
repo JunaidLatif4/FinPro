@@ -315,7 +315,7 @@ function Marketing() {
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).taxes).map((data, id) => <td key={id}>${getYear(marketing.inputs).taxes[data].toFixed(2)}</td>)}
+									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).taxes).map((data, id) => <td key={id}>${getYear(marketing.inputs).taxes[data].toFixed(2) * (getYear(marketing.inputs).salaries[data]) / 100}</td>)}
 									{chartValue === 'quarter' &&
 										marketing &&
 										marketing.inputs &&

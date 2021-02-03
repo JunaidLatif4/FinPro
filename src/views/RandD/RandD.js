@@ -302,7 +302,7 @@ function RandD() {
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).taxes).map((data, id) => <td key={id}>${getYear(randd.inputs).taxes[data].toFixed(2)}</td>)}
+									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).taxes).map((data, id) => <td key={id}>${getYear(randd.inputs).taxes[data].toFixed(2) * (getYear(randd.inputs).salaries[data]) / 100}</td>)}
 									{chartValue === 'quarter' && randd && randd.inputs && randd.inputs.length > 0 && getQuarter(randd.inputs) && Object.keys(getQuarter(randd.inputs).taxes).map((quarter, id) => <td key={id}>${getQuarter(randd.inputs).taxes[quarter].toFixed(2)}</td>)}
 									{chartValue === 'month' && randd && randd.inputs && randd.inputs.length > 0 && getMonthDetails(randd.inputs) && Object.keys(getMonthDetails(randd.inputs).taxes).map((month, id) => <td key={id}>${getMonthDetails(randd.inputs).taxes[month].toFixed(2)}</td>)}
 								</tr>

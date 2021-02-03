@@ -178,7 +178,7 @@ function MarketingInputs({ marketing, setMsg, setErr, setAlertClass }) {
 									<th scope='col'>Start Date</th>
 									<th scope='col'>Salary</th>
 									<th scope='col'>Taxes</th>
-									<th scope='col'>Commissions</th>
+									<th scope='col'>Bonuses</th>
 									<th scope='col'>
 										<i title='Add Marketing Inputs' onClick={handleClickOpen} style={{ fontSize: '22px', cursor: 'pointer' }} className='fe fe-plus add-icon'></i>
 										<Dialog open={open} onClose={handleClose} aria-labelledby='alert-dialog-title' aria-describedby='alert-dialog-description'>
@@ -218,9 +218,9 @@ function MarketingInputs({ marketing, setMsg, setErr, setAlertClass }) {
 														</div>
 														<div className='col-12 col-md-12 mb-3'>
 															<label htmlFor='commissions' className='form-label'>
-																Commissions
+																Bonuses
 															</label>
-															<input type='text' name='commissions' value={marketingInputForm.commissions} onChange={handleMarketingChange} className='form-control' id='commissions' placeholder='Commissions' required />
+															<input type='text' name='commissions' value={marketingInputForm.commissions} onChange={handleMarketingChange} className='form-control' id='commissions' placeholder='Bonuses' required />
 														</div>
 													</div>
 												</DialogContent>
@@ -256,7 +256,7 @@ function MarketingInputs({ marketing, setMsg, setErr, setAlertClass }) {
 												<td>{input.hire}</td>
 												<td>{getMonthName(new Date(input.startDate).getMonth() + 1) + ' ' + new Date(input.startDate).getFullYear()}</td>
 												<td>${input.salary}</td>
-												<td>%{input.taxes}</td>
+												<td>{input.taxes}%</td>
 												<td>${input.commissions}</td>
 												<td>
 													<span>
