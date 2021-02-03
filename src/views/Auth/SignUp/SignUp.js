@@ -97,7 +97,7 @@ function SignUp() {
 							<img src={LOGO} alt='logo' />
 						</Link>
 					</div>
-					<h2 className='display-4 text-center mb-3'>Create a new Account</h2>
+					<h2 className='display-4 text-center mb-3'>Create a New Account</h2>
 					{msg && (
 						<div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
 							<strong>{msg}</strong>
