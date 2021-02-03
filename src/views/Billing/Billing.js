@@ -382,7 +382,7 @@ function Billing() {
 													<img className='img-fluid' src={billing.paymentMethod.card.brand === 'visa' ? Visa : MasterCard} alt='visa' style={{ maxWidth: '38px' }} />
 												</div>
 												<div className='col ml-n2'>
-													<h4 className='mb-1'>Visa ending in {billing.paymentMethod.card.exp_year}</h4>
+													<h4 className='mb-1'>Visa ending in {billing.paymentMethod.card.last4}</h4>
 													<small className='text-muted'>
 														Expires {billing.paymentMethod.card.exp_month}/{billing.paymentMethod.card.exp_year}
 													</small>
