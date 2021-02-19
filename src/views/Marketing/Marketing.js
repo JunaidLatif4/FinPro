@@ -247,7 +247,7 @@ function Marketing() {
 						</div>
 					)}
 					<div className='table-container-header'>
-						<h4 className=''>Marketing</h4>
+						<h4 className=''>Marketing Forecast</h4>
 						<div className='chart-handle-grup'>
 							<div className='chart-dropdown'>
 								<span className='mr-3'>View By :</span>
@@ -367,11 +367,11 @@ function Marketing() {
 				</div>
 
 				<div className='col-8 col-xl-7'>
-					<h4>Marketing Inputs</h4>
+					<h4>Marketing Variables</h4>
 					<MarketingInputs marketing={marketing} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 				</div>
 				<div className='col-4 col-xl-5'>
-					<h4>Major Expense Input</h4>
+					<h4>Major Expense Variables</h4>
 					{marketing && marketing._id && <ExpenseInputs marketingId={marketing._id} expenseInputs={marketing.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 				</div>
 			</div>

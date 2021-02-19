@@ -245,7 +245,7 @@ function Sales() {
 					)}
 
 					<div className='table-container-header'>
-						<h4 className=''>Sales</h4>
+						<h4 className=''>Sales Forecast</h4>
 						<div className='chart-handle-grup'>
 							<div className='chart-dropdown'>
 								<span className='mr-3'>View By :</span>
@@ -330,11 +330,11 @@ function Sales() {
 				</div>
 
 				<div className='col-8 col-xl-7'>
-					<h4>Sales Inputs</h4>
+					<h4>Sales Variables</h4>
 					<SalesInputs sales={sales} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 				</div>
 				<div className='col-4 col-xl-5'>
-					<h4>Major Expense Input</h4>
+					<h4>Major Expense Variables</h4>
 					{sales && sales._id && <ExpenseInputs salesId={sales._id} expenseInputs={sales.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 				</div>
 			</div>

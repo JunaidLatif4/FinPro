@@ -159,7 +159,7 @@ function Revenue() {
 					)}
 					<div className='card'>
 						<div className='card-header'>
-							<h4 className='card-header-title'>Revenue</h4>
+							<h4 className='card-header-title'>Revenue Forecast</h4>
 							<div className='chart-handle-grup'>
 								<div className='chart-dropdown'>
 									<span className='mr-3'>View By :</span>
@@ -281,18 +281,18 @@ function Revenue() {
 					</div>
 				</div>
 				<div className='col-8 col-xl-7'>
-					<h4>Revenue Inputs</h4>
+					<h4>Revenue Variables</h4>
 					<RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 
 					<div className='row'>
 						<div className='col-8 col-xl-8'>
-							<h4>Starting Capital</h4>
+							<h4>Startup Capital Variables</h4>
 							{revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 						</div>
 					</div>
 				</div>
 				<div className='col-4 col-xl-5'>
-					<h4>Major Expense Inputs</h4>
+					<h4>Major Expense Variables</h4>
 					{revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 				</div>
 			</div>

@@ -244,7 +244,7 @@ function RandD() {
 						</div>
 					)}
 					<div className='table-container-header'>
-						<h4 className=''>R&D</h4>
+						<h4 className=''>R&D Forecast</h4>
 						<div className='chart-handle-grup'>
 							<div className='chart-dropdown'>
 								<span className='mr-3'>View By :</span>
@@ -329,11 +329,11 @@ function RandD() {
 				</div>
 
 				<div className='col-8 col-xl-7'>
-					<h4>R & D Inputs</h4>
+					<h4>R & D Variables</h4>
 					<RandDInputs randd={randd} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 				</div>
 				<div className='col-4 col-xl-5'>
-					<h4>Major Expense Input</h4>
+					<h4>Major Expense Variables</h4>
 					{randd && randd._id && <ExpenseInputs randdId={randd._id} expenseInputs={randd.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 				</div>
 			</div>
