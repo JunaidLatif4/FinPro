@@ -197,7 +197,7 @@ function Pricing() {
 								<div className='plan-card-heading'>
 									<h4>INTRO PLAN</h4>
 									<h1 className='plan-price'>
-										<span>$</span>19
+										<span>$</span>8
 									</h1>
 									<span>/month</span>
 								</div>
