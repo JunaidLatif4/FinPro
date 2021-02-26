@@ -174,7 +174,7 @@ function ExpenseInputs({ randdId, expenseInputs, setMsg, setErr, setAlertClass }
 								<label htmlFor='value' className='form-label'>
 									{dialogSetting.title}
 								</label>
-								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='Name' required />
+								<input type='text' name='value' value={expenseForm.value} onChange={handleInputChange} className='form-control' id='value' placeholder='i.e., MacBook Pro' required />
 							</div>
 						</div>
 						<div className='row g-3'>
@@ -182,7 +182,7 @@ function ExpenseInputs({ randdId, expenseInputs, setMsg, setErr, setAlertClass }
 								<label htmlFor='cost' className='form-label'>
 									Cost
 								</label>
-								<input type='text' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='Cost' required />
+								<input type='text' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='i.e., 2900' required />
 							</div>
 						</div>
 						<div className='row g-3'>

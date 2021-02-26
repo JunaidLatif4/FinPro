@@ -192,7 +192,7 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 															<label htmlFor='hire' className='form-label'>
 																Hire
 															</label>
-															<input type='text' name='hire' value={salesInputForm.hire} onChange={handleSalesChange} className='form-control' id='hire' placeholder='Hire' required />
+															<input type='text' name='hire' value={salesInputForm.hire} onChange={handleSalesChange} className='form-control' id='hire' placeholder='i.e., Jaxson Deleon' required />
 														</div>
 														<div className='col-6 col-md-6 mb-3'>
 															<label htmlFor='startDate' className='form-label'>
@@ -207,7 +207,7 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 															<label htmlFor='salary' className='form-label'>
 																Salary
 															</label>
-															<input type='text' name='salary' value={salesInputForm.salary} onChange={handleSalesChange} className='form-control' id='salary' placeholder='Salary' required />
+															<input type='text' name='salary' value={salesInputForm.salary} onChange={handleSalesChange} className='form-control' id='salary' placeholder='i.e., 120000' required />
 														</div>
 													</div>
 													<div className='row g-3'>
@@ -215,13 +215,13 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 															<label htmlFor='taxes' className='form-label'>
 																Taxes
 															</label>
-															<input type='text' name='taxes' value={salesInputForm.taxes} onChange={handleSalesChange} className='form-control' id='taxes' placeholder='Taxes' required />
+															<input type='text' name='taxes' value={salesInputForm.taxes} onChange={handleSalesChange} className='form-control' id='taxes' placeholder='i.e., 15' required />
 														</div>
 														<div className='col-12 col-md-12 mb-3'>
 															<label htmlFor='commissions' className='form-label'>
 																Commissions
 															</label>
-															<input type='text' name='commissions' value={salesInputForm.commissions} onChange={handleSalesChange} className='form-control' id='commissions' placeholder='Commissions' required />
+															<input type='text' name='commissions' value={salesInputForm.commissions} onChange={handleSalesChange} className='form-control' id='commissions' placeholder='i.e., 20000' required />
 														</div>
 													</div>
 												</DialogContent>

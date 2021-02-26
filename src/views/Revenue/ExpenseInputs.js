@@ -187,7 +187,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='value' className='form-label'>
 																Credit Card Processing Fees
 															</label>
-															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='i.e. Stripe %' required />
+															<input type='text' name='value' value={expenseForm.value} onChange={handleRevenueChange} className='form-control' id='value' placeholder='i.e., Stripe' required />
 														</div>
 													</div>
 													<div className='row g-3'>
@@ -195,7 +195,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='cost' className='form-label'>
 																Cost
 															</label>
-															<input type='text' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='Cost' required />
+															<input type='text' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='i.e., 2.9% or $0.30' required />
 														</div>
 													</div>
 												</DialogContent>
