@@ -22,7 +22,7 @@ export const getYear = (data) => {
 
 		let taxes = data.reduce(function (acc, obj) {
 			let key = new Date(obj.startDate).getFullYear();
-			acc[key] = (acc[key] || 0) + +obj.taxes;
+			acc[key] = (acc[key] || 0) + +((obj.taxes / 100) * obj.salary);
 			return acc;
 		}, Object.create(null));
 

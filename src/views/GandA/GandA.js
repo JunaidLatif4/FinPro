@@ -303,7 +303,7 @@ function GandA() {
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).taxes).map((data, id) => <td key={id}>${getYear(ganda.inputs).taxes[data].toFixed(2) * (getYear(ganda.inputs).salaries[data]) / 100}</td>)}
+									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).taxes).map((data, id) => <td key={id}>${getYear(ganda.inputs).taxes[data].toFixed(2)}</td>)}
 									{chartValue === 'quarter' && ganda && ganda.inputs && ganda.inputs.length > 0 && getQuarter(ganda.inputs) && Object.keys(getQuarter(ganda.inputs).taxes).map((quarter, id) => <td key={id}>${getQuarter(ganda.inputs).taxes[quarter].toFixed(2)}</td>)}
 									{chartValue === 'month' && ganda && ganda.inputs && ganda.inputs.length > 0 && getMonthDetails(ganda.inputs) && Object.keys(getMonthDetails(ganda.inputs).taxes).map((month, id) => <td key={id}>${getMonthDetails(ganda.inputs).taxes[month].toFixed(2)}</td>)}
 								</tr>
