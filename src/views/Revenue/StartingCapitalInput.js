@@ -6,6 +6,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { addStartingCapital, deleteStartignCapital, updateStartingCapital } from '../../context/revenue-service';
 import { AuthContext } from '../../context/context';
 import { getRevenue } from '../../context/fetch-service';
+import { getInputs } from '../../context/fetch-service';
+import { getMonthName, Months } from '../../utils/utils';
+import moment from 'moment';
 
 function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setAlertClass }) {
 	const { state, dispatch } = React.useContext(AuthContext);
@@ -20,6 +23,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 	const [startingCapitalForm, setStartingCapitalForm] = React.useState({
 		source: '',
 		amount: '',
+		startDate: '',
 	});
 
 	const handleClose = (e) => {
@@ -29,6 +33,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: '',
 			amount: '',
+			startDate: '',
 		});
 	};
 
@@ -97,6 +102,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: '',
 			amount: '',
+			startDate: '',
 		});
 		setOpen(false);
 	};
@@ -142,6 +148,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: rev.source,
 			amount: rev.amount,
+			startDate: moment(rev.date).format('YYYY-MM-DD'),
 			startingCapitalId,
 		});
 	};
@@ -155,6 +162,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 							<tr>
 								<th scope='col'>Source</th>
 								<th scope='col'>Amount</th>
+								<th scope='col'>Investment Date</th>
 								<th scope='col'>
 									<i title='Add Plan' onClick={handleClickOpen} style={{ fontSize: '22px', cursor: 'pointer' }} className='fe fe-plus add-icon'></i>
 									<Dialog open={open} onClose={handleClose} aria-labelledby='alert-dialog-title' aria-describedby='alert-dialog-description'>
@@ -176,6 +184,12 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 															Amount
 														</label>
 														<input type='text' name='amount' value={startingCapitalForm.amount} onChange={handleRevenueChange} className='form-control' id='amount' placeholder='Amount' required />
+													</div>
+													<div className='col-6 col-md-6 mb-3'>
+														<label htmlFor='startDate' className='form-label'>
+															Investment Date
+														</label>
+														<input type='date' name='startDate' value={startingCapitalForm.startDate} onChange={handleRevenueChange} className='form-control' id='startDate' placeholder='Investment Date' required />
 													</div>
 												</div>
 											</DialogContent>
@@ -203,6 +217,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 									<tr key={id}>
 										<td>{rev.source}</td>
 										<td>${rev.amount}</td>
+										<td>{getMonthName(new Date(rev.startDate).getMonth() + 1) + ' ' + new Date(rev.startDate).getFullYear()}</td>
 										<td>
 											<span>
 												<i title='Edit Plan' style={{ cursor: 'pointer' }} className='fe fe-edit edit-icon' onClick={() => handleEditPlan(rev._id, rev)}></i>
