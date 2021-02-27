@@ -23,7 +23,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 	const [startingCapitalForm, setStartingCapitalForm] = React.useState({
 		source: '',
 		amount: '',
-		startDate: '',
+		date: '',
 	});
 
 	const handleClose = (e) => {
@@ -33,7 +33,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: '',
 			amount: '',
-			startDate: '',
+			date: '',
 		});
 	};
 
@@ -102,7 +102,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: '',
 			amount: '',
-			startDate: '',
+			date: '',
 		});
 		setOpen(false);
 	};
@@ -148,7 +148,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 		setStartingCapitalForm({
 			source: rev.source,
 			amount: rev.amount,
-			startDate: moment(rev.date).format('YYYY-MM-DD'),
+			date: rev.date ? moment(rev.date).format('YYYY-MM-DD') : new Date(),
 			startingCapitalId,
 		});
 	};
@@ -189,7 +189,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 														<label htmlFor='startDate' className='form-label'>
 															Investment Date
 														</label>
-														<input type='date' name='startDate' value={startingCapitalForm.startDate} onChange={handleRevenueChange} className='form-control' id='startDate' placeholder='Investment Date' required />
+														<input type='date' name='date' value={startingCapitalForm.date} onChange={handleRevenueChange} className='form-control' id='date' placeholder='Investment Date' required />
 													</div>
 												</div>
 											</DialogContent>
@@ -217,7 +217,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 									<tr key={id}>
 										<td>{rev.source}</td>
 										<td>${rev.amount}</td>
-										<td>{getMonthName(new Date(rev.startDate).getMonth() + 1) + ' ' + new Date(rev.startDate).getFullYear()}</td>
+										<td>{getMonthName(new Date(rev.date).getMonth() + 1) + ' ' + new Date(rev.date).getFullYear()}</td>
 										<td>
 											<span>
 												<i title='Edit Plan' style={{ cursor: 'pointer' }} className='fe fe-edit edit-icon' onClick={() => handleEditPlan(rev._id, rev)}></i>
