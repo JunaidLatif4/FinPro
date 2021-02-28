@@ -212,8 +212,12 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 							</tr>
 						</thead>
 						<tbody>
-							{startingCapital &&
-								startingCapital.map((rev, id) => (
+							{startingCapital
+								.sort((a, b) => {
+									if (new Date(a.date).getFullYear() !== new Date(b.date).getFullYear()) return new Date(a.date).getFullYear() - new Date(b.date).getFullYear();
+									return Months.indexOf(getMonthName(new Date(a.date).getMonth())) - Months.indexOf(getMonthName(new Date(b.date).getMonth()));
+								})
+								.map((rev, id) => (
 									<tr key={id}>
 										<td>{rev.source}</td>
 										<td>${rev.amount}</td>
