@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 import { ButtonGroup, Button } from 'react-bootstrap';
 import { getRevenue } from '../../context/fetch-service';
+import { getInputs } from '../../context/fetch-service';
 
 import { CSVLink } from 'react-csv';
 import jsPDF from 'jspdf';

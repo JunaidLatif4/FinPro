@@ -302,7 +302,7 @@ function Sales() {
 									{chartValue === 'month' && sales && sales.inputs && sales.inputs.length > 0 && getMonthDetails(sales.inputs) && Object.keys(getMonthDetails(sales.inputs).salaries).map((month, id) => <td key={id}>${getMonthDetails(sales.inputs).salaries[month].toFixed(2)}</td>)}
 								</tr>
 								<tr>
-									<th>Benifits & Taxes</th>
+									<th>Benefits & Taxes</th>
 									{chartValue === 'year' && sales && sales.inputs && Object.keys(getYear(sales.inputs).taxes).map((data, id) => <td key={id}>${getYear(sales.inputs).taxes[data].toFixed(2)}</td>)}
 									{chartValue === 'quarter' && sales && sales.inputs && sales.inputs.length > 0 && getQuarter(sales.inputs) && Object.keys(getQuarter(sales.inputs).taxes).map((quarter, id) => <td key={id}>${getQuarter(sales.inputs).taxes[quarter].toFixed(2)}</td>)}
 									{chartValue === 'month' && sales && sales.inputs && sales.inputs.length > 0 && getMonthDetails(sales.inputs) && Object.keys(getMonthDetails(sales.inputs).taxes).map((month, id) => <td key={id}>${getMonthDetails(sales.inputs).taxes[month].toFixed(2)}</td>)}
