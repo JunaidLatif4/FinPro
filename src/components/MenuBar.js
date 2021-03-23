@@ -122,7 +122,7 @@ function MenuBar(props) {
 							<Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
-					,
+					
 				</Toolbar>
 			</AppBar>
 
