@@ -228,69 +228,69 @@ function setData(type, state) {
 			let mdatasets = [];
 			let datam = {};
 			monthData.labels = [
-				getMonthName(new Date().getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + " " + new Date().getFullYear(),
+				getMonthName(new Date().getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + ' ' + new Date().getFullYear(),
 
-				getMonthName(new Date().getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + " " + [new Date().getFullYear() +1],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + " " + [new Date().getFullYear() +1],
+				getMonthName(new Date().getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 1],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + ' ' + [new Date().getFullYear() + 1],
 
-				getMonthName(new Date().getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + " " + [new Date().getFullYear() +2],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + " " + [new Date().getFullYear() +2],
+				getMonthName(new Date().getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 2],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + ' ' + [new Date().getFullYear() + 2],
 
-				getMonthName(new Date().getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + " " + [new Date().getFullYear() +3],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + " " + [new Date().getFullYear() +3],
+				getMonthName(new Date().getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 3],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + ' ' + [new Date().getFullYear() + 3],
 
-				getMonthName(new Date().getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + " " + [new Date().getFullYear() +4],
-				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + " " + [new Date().getFullYear() +4]
+				getMonthName(new Date().getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(1, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(2, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(3, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(4, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(5, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(6, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(7, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(8, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(9, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth()) + ' ' + [new Date().getFullYear() + 4],
+				getMonthName(new Date(moment(new Date()).add(10, 'M')).getMonth() + 1) + ' ' + [new Date().getFullYear() + 4],
 			];
 			for (let i = 0; i < monthData.labels.length; i++) {
 				mdata.forEach((d, id) => {
@@ -349,23 +349,38 @@ function setReports(type, state) {
 
 			let datasets = [];
 			let data = {};
+			let total = [];
+
 			for (let i = 0; i < yearData.labels.length; i++) {
 				ydata.forEach((d, id) => {
-					data[id] = [];
-					if (id === 0) {
+					if (i === 0) {
+						data[id] = [];
 						if (d.type === 'Yearly') {
-							data[id].push(parseFloat(d.price * d.purchasers));
+							// data[id].push(parseFloat(d.price * d.purchasers));
+							total.push(parseFloat(d.price * d.purchasers));
 						} else if (d.type === 'Quarter') {
-							data[id].push(parseFloat(d.price * d.purchasers * 4));
+							// data[id].push(parseFloat(d.price * d.purchasers * 4));
+							total.push(parseFloat(d.price * d.purchasers * 4));
 						} else if (d.type === 'Monthly') {
-							data[id].push(parseFloat(d.price * d.purchasers * 12));
-						}
-						for (let j = 0; j < yearData.labels.length; j++) {
-							data[id].push(parseFloat(data[id][j]) + (20 / 100) * parseFloat(data[id][j]));
+							// data[id].push(parseFloat(d.price * d.purchasers * 12));
+							// console.log(d.price);
+							total.push(parseFloat(d.price * d.purchasers * 12));
 						}
 					}
 				});
 			}
+			console.log(total);
+			console.log(data);
+			let totalRev = total.reduce((a, b) => a + b, 0);
+			for (let j = 0; j < yearData.labels.length; j++) {
+				if (j === 0) {
+					data[0].push(totalRev);
+				} else {
+					totalRev += (20 / 100) * totalRev;
+					data[0].push(totalRev);
+				}
+			}
+			console.log(yearData, ydata);
 
 			data[1] = [];
 			for (let j = 0; j < 5; j++) {
@@ -531,14 +546,19 @@ function setReportTableData(state) {
 			if (quarterData.labels[i]) {
 				inv.push({
 					year: quarterData.labels[i].split(' ')[1],
-					invest: dataq.quarterExpense[i],
+					invest: state.revenues.startingCapital
+						.filter((sc) => new Date(sc.date).getFullYear().toString() === quarterData.labels[i].split(' ')[1])
+						.reduce(function (a, b) {
+							return parseFloat(a) + parseFloat(b.amount);
+						}, 0),
 				});
 			}
 		}
-		// console.log(inv);
+		console.log(inv);
+		// reduce(function(a,b){return  parseFloat(a) + parseFloat(b.amount) }, 0)
 		let investment = inv.reduce(function (acc, obj) {
 			let key = obj.year;
-			acc[key] = (acc[key] || 0) + +obj.invest;
+			acc[key] = obj.invest;
 			return acc;
 		}, Object.create(null));
 
@@ -547,14 +567,12 @@ function setReportTableData(state) {
 		for (let i = 0; i < quarterData.labels.length; i++) {
 			if (i === 0) {
 				dataq.investment[i] = investment[new Date().getFullYear()];
-			} else if (i === 3) {
+			} else if (i === 4) {
 				dataq.investment[i] = investment[new Date().getFullYear() + 1];
-			} else if (i === 6) {
+			} else if (i === 8) {
 				dataq.investment[i] = investment[new Date().getFullYear() + 2];
-			} else if (i === 9) {
-				dataq.investment[i] = investment[new Date().getFullYear() + 3];
 			} else if (i === 12) {
-				dataq.investment[i] = investment[new Date().getFullYear() + 4];
+				dataq.investment[i] = investment[new Date().getFullYear() + 3];
 			} else {
 				dataq.investment[i] = 0;
 			}

@@ -235,31 +235,31 @@ function Reports() {
 												<tbody>
 													<tr>
 														<th>Beginning Cash</th>
-														{tableData && tableData.beginingCash && tableData.beginingCash.slice(0, tableData.beginingCash.length - 1).map((exp, id) => <td key={id}>${exp.toFixed(2)}</td>)}
+														{tableData && tableData.beginingCash && tableData.beginingCash.slice(0, tableData.beginingCash.length - 1).map((exp, id) => <td key={id}>${parseInt(exp.toFixed(2)).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Gross Margin</th>
-														{tableData && tableData.quarterRevenues && tableData.quarterRevenues.slice(0, tableData.quarterRevenues.length - 1).map((rev, id) => <td key={id}>${rev.toFixed(2)}</td>)}
+														{tableData && tableData.quarterRevenues && tableData.quarterRevenues.slice(0, tableData.quarterRevenues.length - 1).map((rev, id) => <td key={id}>${parseInt(rev.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Expenses</th>
-														{tableData && tableData.quarterExpense && tableData.quarterExpense.map((qpro, id) => <td key={id}>${qpro.toFixed(2)}</td>)}
+														{tableData && tableData.quarterExpense && tableData.quarterExpense.map((qpro, id) => <td key={id}>${parseInt(qpro.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Investment</th>
-														{tableData && tableData.investment && tableData.investment.map((inv, id) => <td key={id}>${inv}</td>)}
+														{tableData && tableData.investment && tableData.investment.map((inv, id) => <td key={id}>${parseInt(inv.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Capital Expense</th>
-														{tableData && tableData.captalExpense && tableData.captalExpense.map((ce, id) => <td key={id}>${ce.toFixed(2)}</td>)}
+														{tableData && tableData.captalExpense && tableData.captalExpense.map((ce, id) => <td key={id}>${parseInt(ce.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Change in Cash</th>
-														{tableData && tableData.changeInCash && tableData.changeInCash.slice(0, tableData.changeInCash.length - 1).map((cic, id) => <td key={id}>${cic.toFixed(2)}</td>)}
+														{tableData && tableData.changeInCash && tableData.changeInCash.slice(0, tableData.changeInCash.length - 1).map((cic, id) => <td key={id}>${parseInt(cic.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 													<tr>
 														<th>Ending Balance</th>
-														{tableData && tableData.endingCash && tableData.endingCash.slice(0, tableData.endingCash.length - 1).map((ec, id) => <td key={id}>${ec.toFixed(2)}</td>)}
+														{tableData && tableData.endingCash && tableData.endingCash.slice(0, tableData.endingCash.length - 1).map((ec, id) => <td key={id}>${parseInt(ec.toFixed()).toLocaleString(2)}.00</td>)}
 													</tr>
 												</tbody>
 											</table>
