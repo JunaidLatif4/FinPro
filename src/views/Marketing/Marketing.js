@@ -67,7 +67,7 @@ function Marketing() {
 
 	const [msg, setMsg] = React.useState('');
 	const [err, setErr] = React.useState('');
-	const [alertClass, setAlertClass] = React.useState(userSub && userSub.length > 0 ? '' : 'show');
+	const [alertClass, setAlertClass] = React.useState(userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? '' : 'show');
 
 	const [csvData, setCsvData] = React.useState('');
 
@@ -226,7 +226,7 @@ function Marketing() {
 		}
 	};
 
-	return userSub && userSub.length > 0 ? (
+	return userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? (
 		<div className='container-fluid'>
 			<div className='row'>
 				<div className='col-12 col-xl-12'>

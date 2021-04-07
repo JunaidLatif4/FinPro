@@ -214,17 +214,24 @@ function Pricing() {
 		};
 
 		try {
-			let addPaymentMethod = await addPayment(data);
-
-			if (addPaymentMethod.status === 200) {
+			let sub = await subscription(false, data);
+			if (sub.status === 200 || sub.status === 201) {
 				let billings = await getUserPaymentMethods();
 				dispatch({
 					type: 'SET_BILLING',
 					payload: billings,
 				});
+				let purchasing = await getUserPurchasing();
+				dispatch({
+					type: 'SET_PURCHASING',
+					payload: purchasing,
+				});
 
 				setAlertClass('show');
-				setMsg2(addPaymentMethod.data.message);
+				setMsg(sub.data.message);
+				setErr('');
+				setLoader(false);
+				setLoaderFor('');
 				setErr2('');
 				setPaymentForm({
 					address: '',
@@ -234,9 +241,30 @@ function Pricing() {
 					expiryDate: '',
 					cvc: '',
 				});
-				// setOpen(false);
-				setLoader(false);
 			}
+
+			// let addPaymentMethod = await addPayment(data);
+			// if (addPaymentMethod.status === 200) {
+			// 	let billings = await getUserPaymentMethods();
+			// 	dispatch({
+			// 		type: 'SET_BILLING',
+			// 		payload: billings,
+			// 	});
+
+			// 	setAlertClass('show');
+			// 	setMsg2(addPaymentMethod.data.message);
+			// 	setErr2('');
+			// 	setPaymentForm({
+			// 		address: '',
+			// 		city: '',
+			// 		state: '',
+			// 		cardNumber: '',
+			// 		expiryDate: '',
+			// 		cvc: '',
+			// 	});
+			// 	// setOpen(false);
+			// 	setLoader(false);
+			// }
 		} catch (err) {
 			setAlertClass('show');
 			setMsg2('');
@@ -333,7 +361,7 @@ function Pricing() {
 
 								<div className='mt-2'></div>
 								<div className='mb-4 text-center'>
-									{userSub && userSub.length > 0 ? (
+									{userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + 30 * 24 * 60 * 60 * 1000 ? (
 										<>
 											<button onClick={cancelUserSubscription} className='btn btn-custom btn-padd'>
 												{loaderFor === 'cancel' && (
@@ -364,14 +392,26 @@ function Pricing() {
 												)}
 												{(loaderFor === '' || loaderFor === 'trial') && 'Subscribe'}
 											</button>
-											<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
-												{loaderFor === 'trial' && (
-													<div className='spinner-border spinner-border-sm' role='status'>
-														<span className='sr-only'>Loading...</span>
-													</div>
-												)}
-												{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
-											</button>
+											{userSub && userSub.length > 0 && userSub[0].trialStartDate && Date.parse(new Date(userSub[0].trialStartDate)) + 30 * 24 * 60 * 60 * 1000 < Date.parse(new Date()) ? (
+												// <button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
+												// 	{loaderFor === 'trial' && (
+												// 		<div className='spinner-border spinner-border-sm' role='status'>
+												// 			<span className='sr-only'>Loading...</span>
+												// 		</div>
+												// 	)}
+												// 	{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
+												// </button>
+												<></>
+											) : (
+												<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
+													{loaderFor === 'trial' && (
+														<div className='spinner-border spinner-border-sm' role='status'>
+															<span className='sr-only'>Loading...</span>
+														</div>
+													)}
+													{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
+												</button>
+											)}
 										</>
 									)}
 								</div>

@@ -35,7 +35,7 @@ function Reports() {
 	const [csvData, setCsvData] = React.useState('');
 	const [chartValue, setChartValue] = React.useState('P&L by Year');
 	const [chartLoader, setChartLoader] = React.useState(true);
-	const [alertClass, setAlertClass] = React.useState(userSub && userSub.length > 0 ? '' : 'show');
+	const [alertClass, setAlertClass] = React.useState(userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? '' : 'show');
 	const handleCloseAlert = () => {
 		setAlertClass('hide');
 	};
@@ -158,7 +158,7 @@ function Reports() {
 			setCsvData(str);
 		}
 	};
-	return userSub && userSub.length > 0 ? (
+	return userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? (
 		<div className='report-container'>
 			<div className='container-fluid'>
 				<div className='row'>

@@ -57,5 +57,5 @@
 			"last 1 safari version"
 		]
 	},
-	"proxy": "https://a38boyexz5.execute-api.us-east-1.amazonaws.com"
+	"proxy": "http://localhost:3000"
 }
