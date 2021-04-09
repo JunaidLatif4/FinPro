@@ -11,7 +11,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
 import images from 'react-payment-inputs/images';
 import { addPayment } from '../../context/payment-service';
-const planlist = ['SaaS business Model', 'Input Variables', 'Charts', 'Reports', '14-day free trial'];
+const planlist = ['SaaS business Model', 'Input Variables', 'Charts', 'Reports', '7-day free trial'];
 
 function Pricing() {
 	const { meta, wrapperProps, getCardImageProps, getCardNumberProps, getExpiryDateProps, getCVCProps } = usePaymentInputs();
