@@ -97,7 +97,7 @@ function SignUp() {
 							<img src={LOGO} alt='logo' />
 						</Link>
 					</div>
-					<h2 className='display-4 text-center mb-3'>Create a New Account</h2>
+					<h2 className='display-4 text-center mb-3'>Create your free account</h2>
 					{msg && (
 						<div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
 							<strong>{msg}</strong>
@@ -119,7 +119,7 @@ function SignUp() {
 						<div className='form-group'>
 							<label className='form-label'>Email Address</label>
 
-							<input type='email' name='email' value={signupForm.email} onChange={handleSignUp} className='form-control' required placeholder='name@address.com' />
+							<input type='email' name='email' value={signupForm.email} onChange={handleSignUp} className='form-control' required placeholder='Work email' />
 						</div>
 
 						<div className='form-group'>
@@ -145,7 +145,7 @@ function SignUp() {
 
 						<div className='text-center'>
 							<small className='text-muted text-center'>
-								Already have an account? <Link to='/login'>Log in</Link>.
+								Already have an account? <Link to='/login'>Sign in</Link>.
 							</small>
 						</div>
 					</form>
