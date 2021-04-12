@@ -4,13 +4,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-
 import { AuthContext } from '../../context/context';
 import { getRevenue } from '../../context/fetch-service';
 import { addExpense, deleteExpense, updateExpense } from '../../context/revenue-service';
 
 function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass }) {
-
 	const { state, dispatch } = React.useContext(AuthContext);
 
 	const [open, setOpen] = React.useState(false);
@@ -224,7 +222,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i className='fe fe-edit edit-icon' onClick={() => handleEditPlan(expInp._id, expInp)}></i>
@@ -295,7 +293,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>${expInp.cost}</td>
+												<td>${parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i className='fe fe-edit edit-icon' onClick={() => handleEditPlan(expInp._id, expInp)}></i>

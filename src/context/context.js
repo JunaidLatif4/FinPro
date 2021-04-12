@@ -591,10 +591,10 @@ function setReportTableData(state) {
 		for (let j = 0; j < quarterData.labels.length + 1; j++) {
 			if (j === 0) {
 				dataq.beginingCash.push(startCash);
-				dataq.endingCash.push(startCash + dataq.changeInCash[j]);
+				dataq.endingCash.push(startCash + dataq.changeInCash[j] - dataq.quarterExpense[j]);
 			} else {
 				dataq.beginingCash.push(dataq.endingCash[j - 1]);
-				dataq.endingCash.push(dataq.beginingCash[j] + dataq.changeInCash[j]);
+				dataq.endingCash.push(dataq.beginingCash[j] + dataq.changeInCash[j] - dataq.quarterExpense[j]);
 			}
 		}
 

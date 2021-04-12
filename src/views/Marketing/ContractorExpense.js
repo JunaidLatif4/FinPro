@@ -221,7 +221,7 @@ function ExpenseInputs({ marketingId, expenseInputs, setMsg, setErr, setAlertCla
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i

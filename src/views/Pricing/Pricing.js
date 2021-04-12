@@ -227,6 +227,7 @@ function Pricing() {
 					payload: purchasing,
 				});
 
+				setOpen(false);
 				setAlertClass('show');
 				setMsg(sub.data.message);
 				setErr('');

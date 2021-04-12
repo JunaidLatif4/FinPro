@@ -220,7 +220,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 								.map((rev, id) => (
 									<tr key={id}>
 										<td>{rev.source}</td>
-										<td>${rev.amount}</td>
+										<td>${parseInt(rev.amount).toLocaleString()}.00</td>
 										<td>{getMonthName(new Date(rev.date).getMonth() + 1) + ' ' + new Date(rev.date).getFullYear()}</td>
 										<td>
 											<span>

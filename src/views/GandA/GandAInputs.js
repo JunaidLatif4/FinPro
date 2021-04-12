@@ -256,9 +256,9 @@ function GandAInputs({ ganda, setMsg, setErr, setAlertClass }) {
 											<tr key={id}>
 												<td>{input.hire}</td>
 												<td>{getMonthName(new Date(input.startDate).getMonth() + 1) + ' ' + new Date(input.startDate).getFullYear()}</td>
-												<td>${input.salary}</td>
+												<td>${parseInt(input.salary).toLocaleString()}.00</td>
 												<td>{input.taxes}%</td>
-												<td>${input.commissions}</td>
+												<td>${parseInt(input.commissions).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i title='Edit Plan' style={{ cursor: 'pointer' }} className='fe fe-edit edit-icon' onClick={() => handleEditInput(input)}></i>

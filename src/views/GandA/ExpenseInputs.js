@@ -199,7 +199,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										<label htmlFor='perEmployee' className='form-label'>
 											{dialogSetting.employee}
 										</label>
-										<input type='text' name='perEmployee' value={expenseForm.perEmployee} onChange={handleInputChange} className='form-control' id='perEmployee' placeholder={dialogSetting.employee} hidden/>
+										<input type='text' name='perEmployee' value={expenseForm.perEmployee} onChange={handleInputChange} className='form-control' id='perEmployee' placeholder={dialogSetting.employee} hidden />
 									</div>
 								)
 							)}
@@ -252,7 +252,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i
@@ -306,7 +306,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i
@@ -362,7 +362,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -423,7 +423,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -482,7 +482,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -542,7 +542,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{expInp.cost}</td>
+												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.date}</td>
 												<td>
 													<span>
