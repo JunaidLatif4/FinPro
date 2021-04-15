@@ -278,7 +278,7 @@ function Reports() {
 															let value;
 															data['datasets'].forEach((d) => {
 																if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-																	value = '$ ' + d['data'][tooltipItem['index']];
+																	value = '$ ' + parseInt(d['data'][tooltipItem['index']]).toLocaleString();
 																}
 															});
 															// console.log(value)

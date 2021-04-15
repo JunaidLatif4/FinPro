@@ -217,7 +217,7 @@ function Revenue() {
 													data['datasets'].forEach((d) => {
 														// console.log(d['data'][tooltipItem['index']], tooltipItem);
 														if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-															value = '$ ' + d['data'][tooltipItem['index']].toFixed(2);
+															value = '$ ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
 														}
 													});
 													// console.log(value);
