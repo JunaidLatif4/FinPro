@@ -123,3 +123,44 @@ export const deleteStartignCapital = async (data) => {
 			});
 	});
 };
+
+export const addGrowthRateInputs = async (data) => {
+	return new Promise((resolve, reject) => {
+		axios
+			.post('/addGrowthRateInputs', data)
+			.then((rev) => {
+				resolve(rev);
+			})
+			.catch((err) => {
+				console.log(err);
+				reject(err);
+			});
+	});
+};
+export const updateGrowthRateInputs = async (data) => {
+	return new Promise((resolve, reject) => {
+		axios
+			.put('/updateGrowthRateInputs', data)
+			.then((rev) => {
+				resolve(rev);
+			})
+			.catch((err) => {
+				console.log(err);
+				reject(err);
+			});
+	});
+};
+
+export const deleteGrowthRateInputs = async (data) => {
+	return new Promise((resolve, reject) => {
+		axios
+			.post('/deleteGrowthRateInputs', data)
+			.then((rev) => {
+				resolve(rev);
+			})
+			.catch((err) => {
+				console.log(err);
+				reject(err);
+			});
+	});
+};

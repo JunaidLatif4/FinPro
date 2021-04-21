@@ -14,6 +14,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 import RevenueInputs from './RevenueInputs';
+import GrowthRateInputs from './GrowthRateInputs';
 import ExpenseInputs from './ExpenseInputs';
 import numeral from 'numeral';
 import StartingCapitalInput from './StartingCapitalInput';
