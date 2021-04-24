@@ -144,13 +144,25 @@ export const getQuarter = (data, date = 'startDate', value) => {
 	// console.log(data);
 	// data.slice(Math.max(data.length - 5, 0));
 	data.forEach((d) => {
-		if (new Date(d[date]).getMonth() === 0 || new Date(d[date]).getMonth() === 1 || new Date(d[date]).getMonth() === 2) {
+		if (new Date(d[date]).getMonth() === 1 || new Date(d[date]).getMonth() === 2 || new Date(d[date]).getMonth() === 3) {
 			Q1.push({ ...d, quarter: 'Q1 ' + new Date(d[date]).getFullYear() });
-		} else if (new Date(d[date]).getMonth() === 3 || new Date(d[date]).getMonth() === 4 || new Date(d[date]).getMonth() === 5) {
 			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
-		} else if (new Date(d[date]).getMonth() === 6 || new Date(d[date]).getMonth() === 7 || new Date(d[date]).getMonth() === 8) {
 			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
-		} else if (new Date(d[date]).getMonth() === 9 || new Date(d[date]).getMonth() === 10 || new Date(d[date]).getMonth() === 11) {
+			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
+		} else if (new Date(d[date]).getMonth() === 4 || new Date(d[date]).getMonth() === 5 || new Date(d[date]).getMonth() === 6) {
+			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
+		} else if (new Date(d[date]).getMonth() === 7 || new Date(d[date]).getMonth() === 8 || new Date(d[date]).getMonth() === 9) {
+			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
+		} else if (new Date(d[date]).getMonth() === 10 || new Date(d[date]).getMonth() === 11 || new Date(d[date]).getMonth() === 12) {
+			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q2 ' + new Date(d[date]).getFullYear() });
+			Q1.push({ ...d, quarter: 'Q3 ' + new Date(d[date]).getFullYear() });
 			Q1.push({ ...d, quarter: 'Q4 ' + new Date(d[date]).getFullYear() });
 		}
 	});

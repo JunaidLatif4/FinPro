@@ -222,7 +222,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{(expInp.cost)}</td>
 												<td>
 													<span>
 														<i className='fe fe-edit edit-icon' onClick={() => handleEditPlan(expInp._id, expInp)}></i>
