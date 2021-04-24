@@ -21,7 +21,7 @@ function Pricing() {
 		dispatch,
 	} = React.useContext(AuthContext);
 
-	const userSub = purchasing && purchasing.length > 0 ? purchasing.filter((sub) => sub.status === 'active') : [];
+	const userSub = purchasing && purchasing.length > 0 ? purchasing : [];
 
 	const [alertErrOpen, setAlertErrOpen] = React.useState(false);
 	const [loader, setLoader] = React.useState(false);
@@ -362,7 +362,7 @@ function Pricing() {
 
 								<div className='mt-2'></div>
 								<div className='mb-4 text-center'>
-									{userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + 30 * 24 * 60 * 60 * 1000 ? (
+									{userSub && userSub.length > 0 && userSub[0].status === 'active' && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + 30 * 24 * 60 * 60 * 1000 ? (
 										<>
 											<button onClick={cancelUserSubscription} className='btn btn-custom btn-padd'>
 												{loaderFor === 'cancel' && (
@@ -393,7 +393,7 @@ function Pricing() {
 												)}
 												{(loaderFor === '' || loaderFor === 'trial') && 'Subscribe'}
 											</button>
-											{userSub && userSub.length > 0 && userSub[0].trialStartDate && Date.parse(new Date(userSub[0].trialStartDate)) + 30 * 24 * 60 * 60 * 1000 < Date.parse(new Date()) ? (
+											{userSub && userSub.length > 0 && userSub[0].trialStartDate && Date.parse(new Date(userSub[0].trialStartDate)) + 7 * 24 * 60 * 60 * 1000 < Date.parse(new Date()) ? (
 												// <button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
 												// 	{loaderFor === 'trial' && (
 												// 		<div className='spinner-border spinner-border-sm' role='status'>
@@ -404,14 +404,16 @@ function Pricing() {
 												// </button>
 												<></>
 											) : (
-												<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
-													{loaderFor === 'trial' && (
-														<div className='spinner-border spinner-border-sm' role='status'>
-															<span className='sr-only'>Loading...</span>
-														</div>
-													)}
-													{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
-												</button>
+												userSub[0].status !== 'cancel' && (
+													<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
+														{loaderFor === 'trial' && (
+															<div className='spinner-border spinner-border-sm' role='status'>
+																<span className='sr-only'>Loading...</span>
+															</div>
+														)}
+														{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
+													</button>
+												)
 											)}
 										</>
 									)}
