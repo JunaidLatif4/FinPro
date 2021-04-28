@@ -362,6 +362,7 @@ function Pricing() {
 
 								<div className='mt-2'></div>
 								<div className='mb-4 text-center'>
+									{console.log('-------', userSub)}
 									{userSub && userSub.length > 0 && userSub[0].status === 'active' && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + 30 * 24 * 60 * 60 * 1000 ? (
 										<>
 											<button onClick={cancelUserSubscription} className='btn btn-custom btn-padd'>
@@ -403,20 +404,16 @@ function Pricing() {
 												// 	{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
 												// </button>
 												<></>
-											) : (
-												userSub &&
-												userSub.length > 0 &&
-												userSub[0].status !== 'cancel' && (
-													<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
-														{loaderFor === 'trial' && (
-															<div className='spinner-border spinner-border-sm' role='status'>
-																<span className='sr-only'>Loading...</span>
-															</div>
-														)}
-														{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
-													</button>
-												)
-											)}
+											) : (userSub && userSub.length > 0 && userSub[0].status !== 'cancel') || userSub.length === 0 ? (
+												<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
+													{loaderFor === 'trial' && (
+														<div className='spinner-border spinner-border-sm' role='status'>
+															<span className='sr-only'>Loading...</span>
+														</div>
+													)}
+													{(loaderFor === '' || loaderFor === 'sub') && 'Start Trial'}
+												</button>
+											) : null}
 										</>
 									)}
 								</div>
