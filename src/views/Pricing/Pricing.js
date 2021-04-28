@@ -404,6 +404,8 @@ function Pricing() {
 												// </button>
 												<></>
 											) : (
+												userSub &&
+												userSub.length > 0 &&
 												userSub[0].status !== 'cancel' && (
 													<button onClick={(e) => addSubscription(e, 'startTrial')} className='btn btn-custom btn-padd'>
 														{loaderFor === 'trial' && (
