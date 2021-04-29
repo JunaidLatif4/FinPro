@@ -17,8 +17,6 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 	//const [msg, setMsg] = React.useState('');
 	//const [err, setErr] = React.useState('');
 	const [loader, setLoader] = React.useState(false);
-	const [file, setFile] = React.useState('');
-	const [fileUrl, setFileUrl] = React.useState('');
 
 	const handleSetting = (e) => {
 		const { name, value } = e.target;
@@ -30,53 +28,8 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 		});
 	};
 
-	const onChangeFile = (event) => {
-		const file = event.target.files[0];
-		if (file) {
-			var reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.onloadend = function (e) {
-				setFileUrl(reader.result);
-				setFile(file);
-			};
-		}
-	};
 
-	const changeProfile = async () => {
-		setLoader(true);
-		const formData = new FormData();
-		formData.append('image', file, file.name);
-		try {
-			let profile = await axios.post('/profile', formData);
-			if (profile.status === 200) {
-				let user = await axios.get('/user');
-				if (user.status === 200) {
-					setErr('');
-					setAlertClass('show');
-					setFile('');
-					dispatch({
-						type: 'SET_USER',
-						payload: user.data.user,
-					});
-					setMsg(profile.data.message);
-					setLoader(false);
-				}
-			}
-		} catch (e) {
-			setAlertClass('show');
-			setMsg('');
-			if (e.response && e.response.data) {
-				if (e.response.data.error) {
-					setErr(e.response.data.error.message);
-				} else {
-					setErr(e.response.data.message);
-				}
-			} else {
-				setErr(e.message);
-			}
-			setLoader(false);
-		}
-	};
+
 	const handleSubmit = async (e) => {
 		setLoader(true);
 		e.preventDefault();
@@ -119,14 +72,9 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 		setErr('');
 		setMsg('');
 	};
-	const cancelProfileChange = () => {
-		setFileUrl('');
-	};
 
 	return (
 		<div className='container'>
-			<div className='row'>
-				<div className='col-12 col-lg-6'>
 					<form onSubmit={handleSubmit}>
 						<div className='mt-5 mb-5'></div>
 								<div className='form-group'>
@@ -142,8 +90,6 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 									</button>
 								</div>
 					</form>
-				</div>
-			</div>
 		</div>
 	);
 }

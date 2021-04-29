@@ -144,7 +144,7 @@ function setData(type, state) {
 						data[id].push(parseFloat(d.price * d.purchasers * 12));
 					}
 					for (let j = 0; j < yearData.labels.length; j++) {
-						data[id].push(parseFloat(data[id][j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(data[id][j]));
+						data[id].push(parseFloat(data[id][j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(data[id][j]));
 					}
 				});
 			}
@@ -378,7 +378,7 @@ function setReports(type, state) {
 				if (j === 0) {
 					data[0].push(totalRev);
 				} else {
-					totalRev += ((user && user.grate ? user.grate : user.email) / 100) * totalRev;
+					totalRev += (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * totalRev;
 					data[0].push(totalRev);
 				}
 			}
@@ -447,7 +447,7 @@ function setReports(type, state) {
 							dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 						}
 						for (let j = 0; j < quarterData.labels.length; j++) {
-							dataq[id].push(parseFloat(dataq[id][j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(dataq[id][j]));
+							dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(dataq[id][j]));
 						}
 					}
 				});
@@ -521,7 +521,7 @@ function setReportTableData(state) {
 						dataq.quarterRevenues.push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(dataq.quarterRevenues[j]));
+						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(dataq.quarterRevenues[j]));
 					}
 				}
 			});

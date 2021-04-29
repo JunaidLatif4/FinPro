@@ -291,7 +291,7 @@ function Revenue() {
 						<h4>Revenue Variables</h4>
 						<RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 					</div>
-					<div className='col-3 col-xl-3'>
+					<div className='col-3 col-xl-3' style={{ backgroundColor: '#edf2f9', padding: "10px", borderRadius: "20px"  }}>
 						<h4>Growth Variable</h4>
 						<GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass}/>
 					</div>
