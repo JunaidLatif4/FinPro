@@ -15,6 +15,7 @@ import 'jspdf-autotable';
 
 import RevenueInputs from './RevenueInputs';
 import GrowthRateInputs from './GrowthRateInputs';
+import GrowthRates from './GrowthRateInputs2';
 import ExpenseInputs from './ExpenseInputs';
 import numeral from 'numeral';
 import StartingCapitalInput from './StartingCapitalInput';
@@ -283,21 +284,28 @@ function Revenue() {
 						</div>
 					</div>
 				</div>
-				<div className='col-8 col-xl-7'>
-					<h4>Revenue Variables</h4>
-					<RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 
-					<div className='row'>
-						<div className='col-8 col-xl-8'>
-							<h4>Startup Capital Variables</h4>
-							{revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
-						</div>
+
+				<div className='row'>
+					<div className='col-5 col-xl-6'>
+						<h4>Revenue Variables</h4>
+						<RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
+					</div>
+					<div className='col-3 col-xl-3'>
+						<h4>Growth Variable</h4>
+						<GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass}/>
+					</div>
+					<div className='col-3 col-xl-3'>
+						<h4>Major Expense Variables</h4>
+						{revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 					</div>
 				</div>
-				<div className='col-4 col-xl-5'>
-					<h4>Major Expense Variables</h4>
-					{revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
+			<div className='row'>
+				<div className='col-8 col-xl-8'>
+					<h4>Startup Capital Variables</h4>
+					{revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 				</div>
+			</div>
 			</div>
 		</div>
 	) : (

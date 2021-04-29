@@ -120,6 +120,7 @@ export const reducer = (state, action) => {
 };
 
 function setData(type, state) {
+	let { user } = state;
 	switch (type) {
 		case 'year':
 			let yearData;
@@ -143,7 +144,7 @@ function setData(type, state) {
 						data[id].push(parseFloat(d.price * d.purchasers * 12));
 					}
 					for (let j = 0; j < yearData.labels.length; j++) {
-						data[id].push(parseFloat(data[id][j]) + (20 / 100) * parseFloat(data[id][j]));
+						data[id].push(parseFloat(data[id][j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(data[id][j]));
 					}
 				});
 			}
@@ -336,6 +337,7 @@ function setData(type, state) {
 }
 
 function setReports(type, state) {
+	let { user } = state;
 	switch (type) {
 		case 'P&L by Year':
 			let yearData;
@@ -376,7 +378,7 @@ function setReports(type, state) {
 				if (j === 0) {
 					data[0].push(totalRev);
 				} else {
-					totalRev += (20 / 100) * totalRev;
+					totalRev += ((user && user.grate ? user.grate : user.email) / 100) * totalRev;
 					data[0].push(totalRev);
 				}
 			}
@@ -445,7 +447,7 @@ function setReports(type, state) {
 							dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 						}
 						for (let j = 0; j < quarterData.labels.length; j++) {
-							dataq[id].push(parseFloat(dataq[id][j]) + (20 / 100) * parseFloat(dataq[id][j]));
+							dataq[id].push(parseFloat(dataq[id][j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(dataq[id][j]));
 						}
 					}
 				});
@@ -496,6 +498,7 @@ function setReports(type, state) {
 }
 
 function setReportTableData(state) {
+	let { user } = state;
 	console.log(state.revenues);
 	if (state.revenues && state.revenues.revenuInputs.length > 0) {
 		let quarterData;
@@ -518,7 +521,7 @@ function setReportTableData(state) {
 						dataq.quarterRevenues.push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + (20 / 100) * parseFloat(dataq.quarterRevenues[j]));
+						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + ((user && user.grate ? user.grate : user.email) / 100) * parseFloat(dataq.quarterRevenues[j]));
 					}
 				}
 			});
