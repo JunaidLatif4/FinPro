@@ -11,6 +11,8 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 	let { user } = state;
 	const [growthRate, setGrowthRate] = React.useState({
 		grate: user ? user.grate : '',
+		grateQuarterly: user ? user.grateQuarterly : '',
+		grateMonthly: user ? user.grateMonthly : '',
 	});
 
 	//const [alertClass, setAlertClass] = React.useState('');
@@ -42,6 +44,8 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 					setAlertClass('show');
 					setGrowthRate({
 						grate: user ? user.grate : '',
+						grateQuarterly: user ? user.grateQuarterly : '',
+						grateMonthly: user ? user.grateMonthly : '',
 					});
 					dispatch({
 						type: 'SET_USER',
@@ -80,6 +84,38 @@ function GrowthRates({setMsg, setErr, setAlertClass}) {
 								<div className='form-group'>
 									<label className='form-label'>Yearly revenue growth variable (%)</label>
 									<input type='number' className='form-control mb-3' name='grate' value={growthRate.grate} onChange={handleSetting} required placeholder='50' />
+									<button disabled={loader} className='btn btn-custom btn-padd'>
+										{loader && (
+											<div className='spinner-border spinner-border-sm' role='status'>
+												<span className='sr-only'>Loading...</span>
+											</div>
+										)}
+										{!loader && 'Save changes'}
+									</button>
+								</div>
+					</form>
+
+					<form onSubmit={handleSubmit}>
+						<div className='mt-5 mb-5'></div>
+								<div className='form-group'>
+									<label className='form-label'>Quarterly revenue growth variable (%)</label>
+									<input type='number' className='form-control mb-3' name='grateQuarterly' value={growthRate.grateQuarterly} onChange={handleSetting} required placeholder='50' />
+									<button disabled={loader} className='btn btn-custom btn-padd'>
+										{loader && (
+											<div className='spinner-border spinner-border-sm' role='status'>
+												<span className='sr-only'>Loading...</span>
+											</div>
+										)}
+										{!loader && 'Save changes'}
+									</button>
+								</div>
+					</form>
+
+					<form onSubmit={handleSubmit}>
+						<div className='mt-5 mb-5'></div>
+								<div className='form-group'>
+									<label className='form-label'>Monthly revenue growth variable (%)</label>
+									<input type='number' className='form-control mb-3' name='grateMonthly' value={growthRate.grateMonthly} onChange={handleSetting} required placeholder='50' />
 									<button disabled={loader} className='btn btn-custom btn-padd'>
 										{loader && (
 											<div className='spinner-border spinner-border-sm' role='status'>

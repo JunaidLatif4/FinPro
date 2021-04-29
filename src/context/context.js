@@ -192,7 +192,7 @@ function setData(type, state) {
 						dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq[id].push(parseFloat(dataq[id][j]) + (20 / 100) * parseFloat(dataq[id][j]));
+						dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq[id][j]));
 					}
 				});
 
@@ -304,7 +304,7 @@ function setData(type, state) {
 						datam[id].push(parseFloat(d.price * d.purchasers));
 					}
 					for (let j = 0; j < monthData.labels.length; j++) {
-						datam[id].push(parseFloat(datam[id][j]) + (20 / 100) * parseFloat(datam[id][j]));
+						datam[id].push(parseFloat(datam[id][j]) + (((user && user.grateMonthly ? user.grateMonthly : user.email) / 100) || (0 / 100)) * parseFloat(datam[id][j]));
 					}
 				});
 				for (let i = 0; i < mdata.length; i++) {
@@ -447,7 +447,7 @@ function setReports(type, state) {
 							dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 						}
 						for (let j = 0; j < quarterData.labels.length; j++) {
-							dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(dataq[id][j]));
+							dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq[id][j]));
 						}
 					}
 				});
@@ -521,7 +521,7 @@ function setReportTableData(state) {
 						dataq.quarterRevenues.push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(dataq.quarterRevenues[j]));
+						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq.quarterRevenues[j]));
 					}
 				}
 			});
