@@ -14,8 +14,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 import RevenueInputs from './RevenueInputs';
-import GrowthRateInputs from './GrowthRateInputs';
-import GrowthRates from './GrowthRateInputs2';
+import GrowthRates from './GrowthRateInputs';
 import ExpenseInputs from './ExpenseInputs';
 import numeral from 'numeral';
 import StartingCapitalInput from './StartingCapitalInput';
@@ -55,7 +54,7 @@ function Revenue() {
 	const classes = useStyles();
 	const history = useHistory();
 	const {
-		state: { purchasing, revenues, data, isAuthenticated },
+		state: { user, purchasing, revenues, data, isAuthenticated },
 		dispatch,
 	} = React.useContext(AuthContext);
 	const userSub = purchasing && purchasing.length > 0 ? purchasing.filter((sub) => sub.status === 'active') : [];
@@ -219,7 +218,7 @@ function Revenue() {
 													data['datasets'].forEach((d) => {
 														// console.log(d['data'][tooltipItem['index']], tooltipItem);
 														if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-															value = '$ ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
+															value = (user && user.currency || "$") +' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
 														}
 													});
 													// console.log(value);
@@ -246,7 +245,7 @@ function Revenue() {
 												{
 													ticks: {
 														callback: function (value) {
-															return '$ ' + numeral(value).format('0.0a');
+															return (user && user.currency || "$") +' ' + numeral(value).format('0.0a');
 														},
 														stepSize: 400,
 														beginAtZero: true,

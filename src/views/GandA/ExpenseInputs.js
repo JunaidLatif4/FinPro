@@ -10,6 +10,7 @@ import { addInputExpense, deleteInputExpense, updateInputExpense } from '../../c
 
 function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }) {
 	const { state, dispatch } = React.useContext(AuthContext);
+	let { user } = state;
 
 	const [open, setOpen] = React.useState(false);
 	const [dialogSetting, setDialogSetting] = React.useState({
@@ -252,7 +253,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i
@@ -306,7 +307,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i
@@ -362,7 +363,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -423,7 +424,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -482,7 +483,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.perEmployee}</td>
 												<td>
 													<span>
@@ -542,7 +543,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>{expInp.date}</td>
 												<td>
 													<span>

@@ -52,7 +52,7 @@ function Marketing() {
 	const history = useHistory();
 	const classes = useStyles();
 	const {
-		state: { purchasing, inputs, data, isAuthenticated },
+		state: { user, purchasing, inputs, data, isAuthenticated },
 		dispatch,
 	} = React.useContext(AuthContext);
 
@@ -305,61 +305,61 @@ function Marketing() {
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getQuarter(marketing.inputs) &&
-										Object.keys(getQuarter(marketing.inputs).salaries).map((quarter, id) => <td key={id}>${parseInt(getQuarter(marketing.inputs).salaries[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(marketing.inputs).salaries).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(marketing.inputs).salaries[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getMonthDetails(marketing.inputs) &&
-										Object.keys(getMonthDetails(marketing.inputs).salaries).map((month, id) => <td key={id}>${parseInt(getMonthDetails(marketing.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(marketing.inputs).salaries).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(marketing.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).taxes).map((data, id) => <td key={id}>${parseInt(getYear(marketing.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).taxes).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(marketing.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getQuarter(marketing.inputs) &&
-										Object.keys(getQuarter(marketing.inputs).taxes).map((quarter, id) => <td key={id}>${parseInt(getQuarter(marketing.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(marketing.inputs).taxes).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(marketing.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getMonthDetails(marketing.inputs) &&
-										Object.keys(getMonthDetails(marketing.inputs).taxes).map((month, id) => <td key={id}>${parseInt(getMonthDetails(marketing.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(marketing.inputs).taxes).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(marketing.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Commissions</th>
-									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).commissions).map((data, id) => <td key={id}>${parseInt(getYear(marketing.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).commissions).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(marketing.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getQuarter(marketing.inputs) &&
-										Object.keys(getQuarter(marketing.inputs).commissions).map((quarter, id) => <td key={id}>${parseInt(getQuarter(marketing.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(marketing.inputs).commissions).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(marketing.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getMonthDetails(marketing.inputs) &&
-										Object.keys(getMonthDetails(marketing.inputs).commissions).map((month, id) => <td key={id}>${parseInt(getMonthDetails(marketing.inputs).commissions[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(marketing.inputs).commissions).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(marketing.inputs).commissions[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Total Payroll</th>
-									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).total).map((data, id) => <td key={id}>${parseInt(getYear(marketing.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && marketing && marketing.inputs && Object.keys(getYear(marketing.inputs).total).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(marketing.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getQuarter(marketing.inputs) &&
-										Object.keys(getQuarter(marketing.inputs).total).map((quarter, id) => <td key={id}>${parseInt(getQuarter(marketing.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(marketing.inputs).total).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(marketing.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										marketing &&
 										marketing.inputs &&
 										marketing.inputs.length > 0 &&
 										getMonthDetails(marketing.inputs) &&
-										Object.keys(getMonthDetails(marketing.inputs).total).map((month, id) => <td key={id}>${parseInt(getMonthDetails(marketing.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(marketing.inputs).total).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(marketing.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 							</tbody>
 						</table>

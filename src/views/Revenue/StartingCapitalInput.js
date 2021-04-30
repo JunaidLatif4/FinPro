@@ -15,6 +15,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 	const [open, setOpen] = React.useState(false);
 	const [loader, setLoader] = React.useState(false);
 	const [edit, setEdit] = React.useState(false);
+	let { user } = state;
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -220,7 +221,7 @@ function StartingCapitalInput({ revenueId, startingCapital, setMsg, setErr, setA
 								.map((rev, id) => (
 									<tr key={id}>
 										<td>{rev.source}</td>
-										<td>${parseInt(rev.amount).toLocaleString()}.00</td>
+										<td>{user && user.currency || "$"}{parseInt(rev.amount).toLocaleString()}.00</td>
 										<td>{getMonthName(new Date(rev.date).getMonth() + 1) + ' ' + new Date(rev.date).getFullYear()}</td>
 										<td>
 											<span>

@@ -14,6 +14,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 	const [open, setOpen] = React.useState(false);
 	const [loader, setLoader] = React.useState(false);
 	const [edit, setEdit] = React.useState(false);
+	let { user } = state;
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -255,7 +256,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 								revenues.revenuInputs.map((rev, id) => (
 									<tr key={id}>
 										<td>{rev.plan}</td>
-										<td>${parseInt(rev.price).toLocaleString()}.00</td>
+										<td>{user && user.currency || "$"}{parseInt(rev.price).toLocaleString()}.00</td>
 										<td>{rev.purchasers}</td>
 										<td>{rev.type}</td>
 										<td>

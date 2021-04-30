@@ -13,6 +13,7 @@ import ContractExpense from './ContractorExpense';
 
 function RandDInputs({ randd, setMsg, setErr, setAlertClass }) {
 	const { state, dispatch } = React.useContext(AuthContext);
+	let { user } = state;
 
 	const [open, setOpen] = React.useState(false);
 	const [loader, setLoader] = React.useState(false);
@@ -256,9 +257,9 @@ function RandDInputs({ randd, setMsg, setErr, setAlertClass }) {
 											<tr key={id}>
 												<td>{input.hire}</td>
 												<td>{getMonthName(new Date(input.startDate).getMonth() + 1) + ' ' + new Date(input.startDate).getFullYear()}</td>
-												<td>${parseInt(input.salary).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(input.salary).toLocaleString()}.00</td>
 												<td>{input.taxes}%</td>
-												<td>${parseInt(input.commissions).toLocaleString()}.00</td>
+												<td>{user && user.currency || "$"}{parseInt(input.commissions).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i title='Edit Plan' style={{ cursor: 'pointer' }} className='fe fe-edit edit-icon' onClick={() => handleEditInput(input)}></i>
