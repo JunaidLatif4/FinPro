@@ -296,67 +296,67 @@ function RandD() {
 								</tr>
 								<tr>
 									<th>Salaries</th>
-									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).salaries).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(randd.inputs).salaries[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).salaries).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(randd.inputs).salaries[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getQuarter(randd.inputs) &&
-										Object.keys(getQuarter(randd.inputs).salaries).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(randd.inputs).salaries[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(randd.inputs).salaries).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(randd.inputs).salaries[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getMonthDetails(randd.inputs) &&
-										Object.keys(getMonthDetails(randd.inputs).salaries).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(randd.inputs).salaries).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).taxes).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(randd.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).taxes).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(randd.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getQuarter(randd.inputs) &&
-										Object.keys(getQuarter(randd.inputs).taxes).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(randd.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(randd.inputs).taxes).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(randd.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getMonthDetails(randd.inputs) &&
-										Object.keys(getMonthDetails(randd.inputs).taxes).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(randd.inputs).taxes).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Commissions</th>
-									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).commissions).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(randd.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).commissions).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(randd.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getQuarter(randd.inputs) &&
-										Object.keys(getQuarter(randd.inputs).commissions).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(randd.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(randd.inputs).commissions).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(randd.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getMonthDetails(randd.inputs) &&
-										Object.keys(getMonthDetails(randd.inputs).commissions).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).commissions[month].toFixed(2)).toLocaleString()}</td>)}
+										Object.keys(getMonthDetails(randd.inputs).commissions).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).commissions[month].toFixed(2)).toLocaleString()}</td>)}
 								</tr>
 								<tr>
 									<th>Total Payroll</th>
-									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).total).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(randd.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && randd && randd.inputs && Object.keys(getYear(randd.inputs).total).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(randd.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getQuarter(randd.inputs) &&
-										Object.keys(getQuarter(randd.inputs).total).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(randd.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(randd.inputs).total).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(randd.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										randd &&
 										randd.inputs &&
 										randd.inputs.length > 0 &&
 										getMonthDetails(randd.inputs) &&
-										Object.keys(getMonthDetails(randd.inputs).total).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(randd.inputs).total).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(randd.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 							</tbody>
 						</table>

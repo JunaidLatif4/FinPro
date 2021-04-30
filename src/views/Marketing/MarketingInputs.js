@@ -256,9 +256,9 @@ function MarketingInputs({ marketing, setMsg, setErr, setAlertClass }) {
 											<tr key={id}>
 												<td>{input.hire}</td>
 												<td>{getMonthName(new Date(input.startDate).getMonth() + 1) + ' ' + new Date(input.startDate).getFullYear()}</td>
-												<td>{user && user.currency || "$"}{parseInt(input.salary).toLocaleString()}.00</td>
+												<td>{user.currency || "$"}{parseInt(input.salary).toLocaleString()}.00</td>
 												<td>{input.taxes}%</td>
-												<td>{user && user.currency || "$"}{parseInt(input.commissions).toLocaleString()}.00</td>
+												<td>{user.currency || "$"}{parseInt(input.commissions).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i title='Edit Plan' style={{ cursor: 'pointer' }} className='fe fe-edit edit-icon' onClick={() => handleEditInput(input)}></i>

@@ -256,7 +256,7 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 								revenues.revenuInputs.map((rev, id) => (
 									<tr key={id}>
 										<td>{rev.plan}</td>
-										<td>{user && user.currency || "$"}{parseInt(rev.price).toLocaleString()}.00</td>
+										<td>{user.currency || "$"}{parseInt(rev.price).toLocaleString()}.00</td>
 										<td>{rev.purchasers}</td>
 										<td>{rev.type}</td>
 										<td>

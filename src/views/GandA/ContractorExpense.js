@@ -219,7 +219,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 										.map((expInp, id) => (
 											<tr key={id}>
 												<td>{expInp.value}</td>
-												<td>{user && user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
+												<td>{user.currency || "$"}{parseInt(expInp.cost).toLocaleString()}.00</td>
 												<td>
 													<span>
 														<i

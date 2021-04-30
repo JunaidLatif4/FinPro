@@ -297,67 +297,67 @@ function GandA() {
 								</tr>
 								<tr>
 									<th>Salaries</th>
-									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).salaries).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(ganda.inputs).salaries[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).salaries).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(ganda.inputs).salaries[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getQuarter(ganda.inputs) &&
-										Object.keys(getQuarter(ganda.inputs).salaries).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(ganda.inputs).salaries[quarter].toFixed()).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(ganda.inputs).salaries).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(ganda.inputs).salaries[quarter].toFixed()).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getMonthDetails(ganda.inputs) &&
-										Object.keys(getMonthDetails(ganda.inputs).salaries).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(ganda.inputs).salaries).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).salaries[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Benifits & Taxes</th>
-									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).taxes).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(ganda.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).taxes).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(ganda.inputs).taxes[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getQuarter(ganda.inputs) &&
-										Object.keys(getQuarter(ganda.inputs).taxes).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(ganda.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(ganda.inputs).taxes).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(ganda.inputs).taxes[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getMonthDetails(ganda.inputs) &&
-										Object.keys(getMonthDetails(ganda.inputs).taxes).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(ganda.inputs).taxes).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).taxes[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Commissions</th>
-									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).commissions).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(ganda.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).commissions).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(ganda.inputs).commissions[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getQuarter(ganda.inputs) &&
-										Object.keys(getQuarter(ganda.inputs).commissions).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(ganda.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(ganda.inputs).commissions).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(ganda.inputs).commissions[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getMonthDetails(ganda.inputs) &&
-										Object.keys(getMonthDetails(ganda.inputs).commissions).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).commissions[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(ganda.inputs).commissions).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).commissions[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 								<tr>
 									<th>Total Payroll</th>
-									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).total).map((data, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getYear(ganda.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
+									{chartValue === 'year' && ganda && ganda.inputs && Object.keys(getYear(ganda.inputs).total).map((data, id) => <td key={id}>{user.currency || "$"}{parseInt(getYear(ganda.inputs).total[data].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'quarter' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getQuarter(ganda.inputs) &&
-										Object.keys(getQuarter(ganda.inputs).total).map((quarter, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getQuarter(ganda.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getQuarter(ganda.inputs).total).map((quarter, id) => <td key={id}>{user.currency || "$"}{parseInt(getQuarter(ganda.inputs).total[quarter].toFixed(2)).toLocaleString()}.00</td>)}
 									{chartValue === 'month' &&
 										ganda &&
 										ganda.inputs &&
 										ganda.inputs.length > 0 &&
 										getMonthDetails(ganda.inputs) &&
-										Object.keys(getMonthDetails(ganda.inputs).total).map((month, id) => <td key={id}>{user && user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
+										Object.keys(getMonthDetails(ganda.inputs).total).map((month, id) => <td key={id}>{user.currency || "$"}{parseInt(getMonthDetails(ganda.inputs).total[month].toFixed(2)).toLocaleString()}.00</td>)}
 								</tr>
 							</tbody>
 						</table>
