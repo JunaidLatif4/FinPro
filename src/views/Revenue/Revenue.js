@@ -100,7 +100,7 @@ function Revenue() {
 		if (revenues && revenues.revenuInputs && revenues.revenuInputs.length > 0) {
 			let type = 'Yearly';
 			if (chartValue === 'quarter') {
-				type = 'Quarter';
+				type = 'Quarterly';
 			} else if (chartValue === 'month') {
 				type = 'Monthly';
 			}
@@ -112,7 +112,7 @@ function Revenue() {
 			const tableRows = [];
 			// for each ticket pass all its data into an array
 			revenues.revenuInputs
-				.filter((rev) => rev.type === type)
+				.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly')
 				.forEach((reve) => {
 					const reveData = [
 						reve._id,
@@ -133,7 +133,7 @@ function Revenue() {
 			// we use a date string to generate our filename.
 			const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
 			// ticket title. and margin-top + margin-left
-			doc.text('Next Five Year Data', 14, 15);
+			doc.text('Revenue Variables', 14, 15);
 			// we define the name of our PDF file.
 			doc.save(`report_${dateStr}.pdf`);
 		}
@@ -183,7 +183,7 @@ function Revenue() {
 											<CSVLink
 												className='csv-download-btn'
 												filename={'data.csv'}
-												data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarter') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly')}>
+												data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly' || 'Quarterly' || 'Monthly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly'  || 'Quarterly' || 'Yearly')}>
 												CSV
 											</CSVLink>
 										) : (

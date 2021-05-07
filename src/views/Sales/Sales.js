@@ -94,13 +94,13 @@ function Sales() {
 		// console.log(getMonthDetails(sales.inputs));
 	}
 	const generatePdf = () => {
-		const doc = new jsPDF();
+		const doc = new jsPDF('l');
 		autoTable(doc, { html: '#sales-table', startY: 20 });
 		const date = Date().split(' ');
 		// we use a date string to generate our filename.
 		const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
 		// ticket title. and margin-top + margin-left
-		doc.text('Next Five Year Data', 14, 15);
+		doc.text('Sales Hires Forecast', 14, 15);
 		// we define the name of our PDF file.
 		doc.save(`report_${dateStr}.pdf`);
 	};
@@ -115,7 +115,7 @@ function Sales() {
 					.join(',') +
 				',\n';
 			str +=
-				'Headingcount ,' +
+				'Headcounts ,' +
 				getYear(sales.inputs)
 					.headings.map((year, id) => year.count)
 					.join(',') +
@@ -152,7 +152,7 @@ function Sales() {
 					.join(',') +
 				',\n';
 			str +=
-				'Headingcount ,' +
+				'Headcounts ,' +
 				getQuarter(sales.inputs)
 					.headings.map((year, id) => year.count)
 					.join(',') +
@@ -189,7 +189,7 @@ function Sales() {
 					.join(',') +
 				',\n';
 			str +=
-				'Headingcount ,' +
+				'Headcounts ,' +
 				getMonthDetails(sales.inputs)
 					.headings.map((year, id) => year.count)
 					.join(',') +

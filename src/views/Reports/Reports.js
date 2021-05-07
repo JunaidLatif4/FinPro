@@ -80,18 +80,18 @@ function Reports() {
 		if (reports && reports.datasets.length > 0 && tableData) {
 			if (reports) {
 				if (chartValue === 'CapEx & Cash Flow') {
-					const doc = new jsPDF();
+					const doc = new jsPDF('l');
 					autoTable(doc, { html: '#report-table', startY: 20, startX: 5, margin: { left: 0, right: 0 } });
 					const date = Date().split(' ');
 					// we use a date string to generate our filename.
 					const dateStr = date[0] + date[1] + date[2] + date[3] + date[4];
 					// ticket title. and margin-top + margin-left
-					doc.text('Next Five Year Quarter Data', 14, 15);
+					doc.text('CapEx & Cash Flow', 14, 15);
 					// we define the name of our PDF file.
 					doc.save(`report_${dateStr}.pdf`);
 					return;
 				}
-				const doc = new jsPDF();
+				const doc = new jsPDF('l');
 
 				let revenues = reports.datasets[0].data;
 				let expenses = reports.datasets[1].data;

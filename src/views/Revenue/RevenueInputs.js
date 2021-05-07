@@ -215,8 +215,8 @@ function RevenueInputs({ revenues, setMsg, setErr, setAlertClass, chartValue }) 
 															<option selected={revenueForm.type === 'Yearly'} value='Yearly'>
 																Yearly
 															</option>
-															<option selected={revenueForm.type === 'Quarter'} value='Quarter'>
-																Quarter
+															<option selected={revenueForm.type === 'Quarterly'} value='Quarterly'>
+																Quarterly
 															</option>
 															<option selected={revenueForm.type === 'Monthly'} value='Monthly'>
 																Monthly
