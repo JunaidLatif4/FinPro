@@ -247,7 +247,7 @@ function Marketing() {
 						</div>
 					)}
 					<div className='table-container-header'>
-						<h4 className=''>Marketing Forecast</h4>
+						<h4 className=''>Marketing Hires Forecast and Expenses</h4>
 						<div className='chart-handle-grup'>
 							<div className='chart-dropdown'>
 								<span className='mr-3'>View By :</span>

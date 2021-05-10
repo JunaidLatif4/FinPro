@@ -245,7 +245,7 @@ function Sales() {
 					)}
 
 					<div className='table-container-header'>
-						<h4 className=''>Sales Forecast</h4>
+						<h4 className=''>Sales Hires Forecast and Expenses</h4>
 						<div className='chart-handle-grup'>
 							<div className='chart-dropdown'>
 								<span className='mr-3'>View By :</span>
