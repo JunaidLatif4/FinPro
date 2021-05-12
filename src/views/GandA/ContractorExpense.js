@@ -170,7 +170,7 @@ function ExpenseInputs({ gandaId, expenseInputs, setMsg, setErr, setAlertClass }
 								<label htmlFor='cost' className='form-label'>
 									Cost
 								</label>
-								<input type='text' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='i.e., 30000' required />
+								<input type='number' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='i.e., 30000' required />
 							</div>
 						</div>
 					</DialogContent>

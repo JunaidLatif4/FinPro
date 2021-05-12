@@ -265,7 +265,7 @@ function ExpenseInputs({ revenueId, expenseInputs, setMsg, setErr, setAlertClass
 															<label htmlFor='cost' className='form-label'>
 																Cost
 															</label>
-															<input type='text' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='Cost Per New Purchaser' required />
+															<input type='number' name='cost' value={expenseForm.cost} onChange={handleRevenueChange} className='form-control' id='cost' placeholder='Cost Per New Purchaser' required />
 														</div>
 													</div>
 												</DialogContent>

@@ -208,7 +208,7 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 															<label htmlFor='salary' className='form-label'>
 																Salary
 															</label>
-															<input type='text' name='salary' value={salesInputForm.salary} onChange={handleSalesChange} className='form-control' id='salary' placeholder='i.e., 120000' required />
+															<input type='number' name='salary' value={salesInputForm.salary} onChange={handleSalesChange} className='form-control' id='salary' placeholder='i.e., 120000' required />
 														</div>
 													</div>
 													<div className='row g-3'>
@@ -216,13 +216,13 @@ function SalesInputs({ sales, setMsg, setErr, setAlertClass }) {
 															<label htmlFor='taxes' className='form-label'>
 																Taxes
 															</label>
-															<input type='text' name='taxes' value={salesInputForm.taxes} onChange={handleSalesChange} className='form-control' id='taxes' placeholder='i.e., 15' required />
+															<input type='number' name='taxes' value={salesInputForm.taxes} onChange={handleSalesChange} className='form-control' id='taxes' placeholder='i.e., 15' required />
 														</div>
 														<div className='col-12 col-md-12 mb-3'>
 															<label htmlFor='commissions' className='form-label'>
 																Commissions
 															</label>
-															<input type='text' name='commissions' value={salesInputForm.commissions} onChange={handleSalesChange} className='form-control' id='commissions' placeholder='i.e., 20000' required />
+															<input type='number' name='commissions' value={salesInputForm.commissions} onChange={handleSalesChange} className='form-control' id='commissions' placeholder='i.e., 20000' required />
 														</div>
 													</div>
 												</DialogContent>

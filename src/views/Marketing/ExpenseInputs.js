@@ -181,7 +181,7 @@ function ExpenseInputs({ marketingId, expenseInputs, setMsg, setErr, setAlertCla
 								<label htmlFor='cost' className='form-label'>
 									Cost
 								</label>
-								<input type='text' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='i.e., 5000' required />
+								<input type='number' name='cost' value={expenseForm.cost} onChange={handleInputChange} className='form-control' id='cost' placeholder='i.e., 5000' required />
 							</div>
 						</div>
 						<div className='row g-3'>
