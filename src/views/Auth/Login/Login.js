@@ -150,11 +150,11 @@ function Login() {
 							{!loader && 'Sign in'}
 						</button>
 
-						<p className='text-center'>
+						{/*<p className='text-center'>
 							<small className='text-muted text-center'>
 								Don't have an account yet? <Link to='/signup'>Sign up</Link>.
 							</small>
-						</p>
+						</p>*/}
 					</form>
 				</div>
 				<div className='col-12 col-md-7 col-lg-6 col-xl-8 d-none d-lg-block'>
