@@ -1,0 +1,26 @@
+.stepper_container {
+  width: 60%;
+  margin: 5rem auto;
+  
+  h1{
+    padding: 0 0 0 13%;
+  }
+  .steps {
+    text-align: center;
+    background-color: rgb(237, 242, 249);
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
+    width: 60%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto;
+    padding: 0.7rem;
+    border-radius: 1rem;
+  }
+
+  .stepper_btn {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}

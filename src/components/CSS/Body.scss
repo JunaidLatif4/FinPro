@@ -1,0 +1,10 @@
+.body_container {
+  display: grid;
+  grid-template-columns: 0.13fr 1fr;
+
+  .data {
+
+    width: 70%;
+    margin: 2rem auto   ;
+  }
+}

@@ -5,6 +5,7 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { AuthContext } from '../context/context';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
@@ -13,6 +14,7 @@ import { Dropdown } from 'react-bootstrap';
 import Profile from '../assets/profile.png';
 import { BASE_URL } from '../context/axios';
 const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -168,6 +170,11 @@ function MenuBar(props) {
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/reports'>
 							<i className='fe fe-folder'></i> Reports
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink className='nav-link' activeClassName='active' to='/stepper'>
+							<ContactSupportIcon/> Stepper
 						</NavLink>
 					</li>
 				</ul>

@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import MenuBar from './components/MenuBar';
 
+import Stepper from './components/Stepper' 
+
 import Revenue from './views/Revenue/Revenue';
 import Sales from './views/Sales/Sales';
 import Marketing from './views/Marketing/Marketing';
@@ -33,6 +35,9 @@ function Routes() {
 				<Route exact path='/settings' component={Settings} />
 				<Route exact path='/billing' component={Billing} />
 				<Route exact path='/pricing' component={Pricing} />
+
+				<Route exact path ='/stepper' component={Stepper} />
+
 				<Route path='*' render={() => <Redirect to='/revenue' />} />
 			</Switch>
 		</MenuBar>
@@ -46,5 +51,6 @@ function Routes() {
 		</Switch>
 	);
 }
+
 
 export default Routes;
