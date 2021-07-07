@@ -5,7 +5,10 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { AuthContext } from '../context/context';
+
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+
 import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
@@ -175,6 +178,11 @@ function MenuBar(props) {
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/stepper'>
 							<ContactSupportIcon/> Stepper
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink className='nav-link' activeClassName='active' to='/progress'>
+							<DonutLargeIcon/> Progress
 						</NavLink>
 					</li>
 				</ul>

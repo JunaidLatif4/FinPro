@@ -57,7 +57,7 @@ const useQontoStepIconStyles = makeStyles({
         height: 18,
         // borderRadius: "50%",
         // backgroundColor: "#5ac2de",
-        border:'2px solid #5ac2de'
+        border: '2px solid #5ac2de'
     },
     completed: {
         color: "#5ac2de",
@@ -65,7 +65,7 @@ const useQontoStepIconStyles = makeStyles({
         fontSize: 18,
     },
     next: {
-        color:'#5ac2de',
+        color: '#5ac2de',
         backgroundColor: "currentColor",
         width: 18,
         height: 18,
@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         fontSize: "1.1rem",
         padding: ".3rem 2rem",
-        backgroundColor:"#5ac2de"
+        backgroundColor: "#5ac2de"
 
     },
     instructions: {
@@ -124,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const getSteps = () => {
-    return ["Business Model", "Company Stage", "Integrations" , "Finish"];
+    return ["Business Model", "Company Stage", "Integrations", "Finish"];
 };
 
 function getStepContent(step) {
@@ -132,11 +132,11 @@ function getStepContent(step) {
         case 0:
             return <BusStep1 />;
         case 1:
-            return <ComStep2/>;
+            return <ComStep2 />;
         case 2:
-            return <IntStep3/>;
+            return <IntStep3 />;
         case 3:
-            return <FinStep4/>;
+            return <FinStep4 />;
         default:
             return "Unknown step";
     }
@@ -176,6 +176,37 @@ const StepperBody = () => {
                         ))}
                     </Stepper>
                     <div>
+                        <div className="steps">
+                            <Typography className={classes.instructions}>
+                                {getStepContent(activeStep)}
+                            </Typography>
+                        </div>
+                        <div className="stepper_btn">
+                            <Button
+                                disabled={activeStep === 0}
+                                onClick={handleBack}
+                                className={classes.button}
+                            >
+                                Back
+                            </Button>
+                            {
+                                activeStep === steps.length - 1 ? null
+                                    :
+                                    <>
+                                        <Button
+                                            variant="contained"
+                                            onClick={handleNext}
+                                            className={classes.button}
+                                        >
+                                            Next
+                                        </Button>
+                                    </>
+                            }
+
+                        </div>
+                    </div>
+
+                    {/* <div>
                         {activeStep === steps.length ? (
                             <div className="stepper_btn">
                                 <Typography className={classes.instructions}>
@@ -210,7 +241,8 @@ const StepperBody = () => {
                                 </div>
                             </div>
                         )}
-                    </div>
+                    </div> */}
+
                 </div>
             </div>
         </>

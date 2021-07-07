@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import MenuBar from './components/MenuBar';
 
 import Stepper from './components/Stepper' 
+import ProgressPage from './components/ProgressPage';
 
 import Revenue from './views/Revenue/Revenue';
 import Sales from './views/Sales/Sales';
@@ -37,6 +38,7 @@ function Routes() {
 				<Route exact path='/pricing' component={Pricing} />
 
 				<Route exact path ='/stepper' component={Stepper} />
+				<Route exact path ='/progress' component={ProgressPage} />
 
 				<Route path='*' render={() => <Redirect to='/revenue' />} />
 			</Switch>
