@@ -1,14 +1,25 @@
 .progresspage_container {
-//   border: 2px solid black;
   width: 80%;
   margin: 1rem auto;
 
   .moneystatus {
     display: flex;
     justify-content: space-between;
+    margin: 3rem 0;
   }
 
-  .progresschart{
+  .progresschart {
+    margin: 3rem 0;
+    margin-top: 5rem;
 
+    h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .progressbar {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

@@ -50,14 +50,15 @@ const useQontoStepIconStyles = makeStyles({
     active: {
         color: "#5ac2de",
         backgroundColor: "#5ac2de",
+        boxSizing:'border-box'
 
     },
     circle: {
-        width: 18,
-        height: 18,
-        // borderRadius: "50%",
-        // backgroundColor: "#5ac2de",
-        border: '2px solid #5ac2de'
+        width: 22,
+        height: 22,
+        border: '2px solid #5ac2de',
+        boxSizing:'border-box'
+        
     },
     completed: {
         color: "#5ac2de",
@@ -67,10 +68,9 @@ const useQontoStepIconStyles = makeStyles({
     next: {
         color: '#5ac2de',
         backgroundColor: "currentColor",
-        width: 18,
-        height: 18,
-        // zIndex: 1,
-        // fontSize: 18,
+        width: 22,
+        height: 22,
+        boxSizing:'border-box',
     },
 });
 

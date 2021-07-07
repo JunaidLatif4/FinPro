@@ -18,7 +18,7 @@ const MoneyBox = ({ props }) => {
           </div>
         </div>
         <div className="img">
-          <props.icon style={{ color: "#aaa" }} />
+          <props.icon style={{ color: "#aaa" , fontSize:'2rem' }} />
         </div>
       </div>
     </>
