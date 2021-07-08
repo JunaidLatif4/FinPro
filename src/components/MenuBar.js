@@ -13,6 +13,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import SettingsIcon from '@material-ui/icons/Settings';
 import { Button } from '@material-ui/core'
 
+import Share from './Menu Components/Share'
+
 import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
 import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
@@ -79,7 +81,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	btn:{
 		color:'#aaa',
-		// fontSize:'4rem',
 		margin:'0 .5rem 0 0',
 
 		'& svg':{
@@ -121,7 +122,8 @@ function MenuBar(props) {
 			<AppBar style={isAuthenticated ? { width: `calc(100% - ${drawerWidth}px)` } : { width: '100%' }} className={classes.appBar}>
 				<Toolbar>
 					<div style={{ flexGrow: 1 }}></div>
-					<Button className={classes.btn}><ShareIcon/></Button>
+					{/* <Button className={classes.btn}><ShareIcon/></Button> */}
+					<Share/>
 					<Button className={classes.btn}><SettingsIcon/></Button>
 					
 					
