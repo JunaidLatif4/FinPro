@@ -9,6 +9,9 @@ import { AuthContext } from '../context/context';
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
+import ShareIcon from '@material-ui/icons/Share';
+import SettingsIcon from '@material-ui/icons/Settings';
+import { Button } from '@material-ui/core'
 
 import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
@@ -74,6 +77,16 @@ const useStyles = makeStyles((theme) => ({
 			borderRadius: '50%',
 		},
 	},
+	btn:{
+		color:'#aaa',
+		// fontSize:'4rem',
+		margin:'0 .5rem 0 0',
+
+		'& svg':{
+			fontSize:'2.5rem'
+		}
+
+	}
 }));
 
 function MenuBar(props) {
@@ -108,6 +121,10 @@ function MenuBar(props) {
 			<AppBar style={isAuthenticated ? { width: `calc(100% - ${drawerWidth}px)` } : { width: '100%' }} className={classes.appBar}>
 				<Toolbar>
 					<div style={{ flexGrow: 1 }}></div>
+					<Button className={classes.btn}><ShareIcon/></Button>
+					<Button className={classes.btn}><SettingsIcon/></Button>
+					
+					
 					<Dropdown>
 						<Dropdown.Toggle as={CustomToggle} id='dropdown-custom-components'>
 							<img src={user && user.profile ? `${user.profile}` : Profile} alt='user profile' />
