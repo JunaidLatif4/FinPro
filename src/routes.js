@@ -5,6 +5,7 @@ import MenuBar from './components/MenuBar';
 
 import Stepper from './components/Stepper' 
 import ProgressPage from './components/ProgressPage';
+import ForecastsPage from './components/ForecastsPage';
 
 import Revenue from './views/Revenue/Revenue';
 import Sales from './views/Sales/Sales';
@@ -39,6 +40,7 @@ function Routes() {
 
 				<Route exact path ='/stepper' component={Stepper} />
 				<Route exact path ='/progress' component={ProgressPage} />
+				<Route exact path ='/forecasts' component={ForecastsPage} />
 
 				<Route path='*' render={() => <Redirect to='/revenue' />} />
 			</Switch>

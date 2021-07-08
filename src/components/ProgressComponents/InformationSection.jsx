@@ -12,7 +12,7 @@ import './CSS/InformationSection.scss'
 
 const AntTabs = withStyles({
     root: {
-        borderBottom: '1px solid #e8e8e8',
+        // borderBottom: '1px solid orange',
     },
     indicator: {
         backgroundColor: '#1890ff',
@@ -30,15 +30,19 @@ const AntTab = withStyles((theme) => ({
             "Cerebri Sans",
         ].join(','),
         '&:hover': {
-            color: '#40a9ff',
+            color: '#58d99b',
             opacity: 1,
         },
         '&$selected': {
-            color: '#1890ff',
+            color: 'black',
             fontWeight: theme.typography.fontWeightMedium,
+            backgroundColor:'#edf2f9',
+            borderBottom:'2 px solid red',
+            // zIndex:'3'
+
         },
         '&:focus': {
-            color: '#40a9ff',
+            // color: 'red',
         },
     },
     selected: {},
@@ -144,19 +148,19 @@ const InformationSevtion = () => {
                         </div>
 
                     <TabPanel value={value} index={0}>
-                        1
+                        1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore doloremque consequatur voluptas, dicta eveniet fugiat? Nihil sapiente magni ut quo reprehenderit enim ad sint quod atque a dolor in, nobis porro, perspiciatis, earum aspernatur minima esse. Saepe totam expedita at architecto ut, cumque assumenda culpa! Reiciendis numquam nulla blanditiis asperiores quaerat! Reiciendis, maxime impedit.
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        2
+                        2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore doloremque consequatur voluptas, dicta eveniet fugiat? Nihil sapiente magni ut quo reprehenderit enim ad sint quod atque a dolor in, nobis porro, perspiciatis, earum aspernatur minima esse. Saepe totam expedita at architecto ut, cumque assumenda culpa! Reiciendis numquam nulla blanditiis asperiores quaerat! Reiciendis, maxime impedit.
                     </TabPanel>
                     <TabPanel value={value} index={2}>
-                        3
+                        3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore doloremque consequatur voluptas, dicta eveniet fugiat? Nihil sapiente magni ut quo reprehenderit enim ad sint quod atque a dolor in, nobis porro, perspiciatis, earum aspernatur minima esse. Saepe totam expedita at architecto ut, cumque assumenda culpa! Reiciendis numquam nulla blanditiis asperiores quaerat! Reiciendis, maxime impedit.
                     </TabPanel>
                     <TabPanel value={value} index={3}>
-                        4
+                        4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore doloremque consequatur voluptas, dicta eveniet fugiat? Nihil sapiente magni ut quo reprehenderit enim ad sint quod atque a dolor in, nobis porro, perspiciatis, earum aspernatur minima esse. Saepe totam expedita at architecto ut, cumque assumenda culpa! Reiciendis numquam nulla blanditiis asperiores quaerat! Reiciendis, maxime impedit.
                     </TabPanel>
                     <TabPanel value={value} index={4}>
-                        5
+                        5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum dolore doloremque consequatur voluptas, dicta eveniet fugiat? Nihil sapiente magni ut quo reprehenderit enim ad sint quod atque a dolor in, nobis porro, perspiciatis, earum aspernatur minima esse. Saepe totam expedita at architecto ut, cumque assumenda culpa! Reiciendis numquam nulla blanditiis asperiores quaerat! Reiciendis, maxime impedit.
                     </TabPanel>
                 </div>
             </div>

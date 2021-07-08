@@ -8,6 +8,7 @@ import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import TimelineIcon from '@material-ui/icons/Timeline';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import { Divider } from '@material-ui/core'
 
 
@@ -107,7 +108,7 @@ const ProgressPage = () => {
                         }
                     </div>
                     <div className="information">
-                        <h3> Benchmark Information  </h3>
+                        <h3> Benchmark Information <InfoOutlinedIcon/> </h3>
                         <Divider/>
                         <InformationSection/>
                     </div>

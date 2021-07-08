@@ -1,0 +1,17 @@
+.forcastspage_container {
+  font-family: "Cerebri Sans", sans-serif;
+  width: 80%;
+  margin: 1rem auto;
+
+  .forcasts_nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .moneyforecast {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
+}

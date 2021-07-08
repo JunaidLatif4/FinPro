@@ -8,6 +8,7 @@ import { AuthContext } from '../context/context';
 
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
 
 import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
 import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
@@ -183,6 +184,11 @@ function MenuBar(props) {
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/progress'>
 							<DonutLargeIcon/> Progress
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink className='nav-link' activeClassName='active' to='/forecasts'>
+						<TrendingUpOutlinedIcon/> Forecasts
 						</NavLink>
 					</li>
 				</ul>
