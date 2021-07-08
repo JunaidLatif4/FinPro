@@ -121,7 +121,7 @@ function Reports() {
 	};
 
 	const generateCSV = () => {
-		console.log(reports);
+		console.log( "This is The REports !!!!!!!!!!!!!!! ======" , reports);
 		if (reports && reports.datasets.length > 0) {
 			let revenues = reports.datasets[0].data;
 			let expenses = reports.datasets[1].data;
@@ -281,7 +281,7 @@ function Reports() {
 																	value = (user.currency || "$") +' ' + parseInt(d['data'][tooltipItem['index']]).toLocaleString();
 																}
 															});
-															// console.log(value)
+															console.log( "The Value =========" , value)
 															return value;
 														},
 														afterLabel: function (tooltipItem, data) {},

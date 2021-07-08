@@ -183,7 +183,7 @@ function Revenue() {
 											<CSVLink
 												className='csv-download-btn'
 												filename={'data.csv'}
-												data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly' || 'Quarterly' || 'Monthly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly'  || 'Quarterly' || 'Yearly')}>
+												data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly' || 'Quarterly' || 'Monthly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly' || 'Quarterly' || 'Yearly')}>
 												CSV
 											</CSVLink>
 										) : (
@@ -218,13 +218,13 @@ function Revenue() {
 													data['datasets'].forEach((d) => {
 														// console.log(d['data'][tooltipItem['index']], tooltipItem);
 														if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-															value = (user.currency || "$") +' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
+															value = (user.currency || "$") + ' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
 														}
 													});
 													// console.log(value);
 													return value;
 												},
-												afterLabel: function (tooltipItem, data) {},
+												afterLabel: function (tooltipItem, data) { },
 											},
 											backgroundColor: '#FFF',
 											borderWidth: 2,
@@ -245,23 +245,26 @@ function Revenue() {
 												{
 													ticks: {
 														callback: function (value) {
-															return (user.currency || "$") +' ' + numeral(value).format('0.0a');
+															return (user.currency || "$") + ' ' + numeral(value).format('0.0a');
 														},
-														stepSize: 400,
+														stepSize: 200,
 														beginAtZero: true,
 													},
 													gridLines: {
 														borderDash: [2],
-														zeroLineColor: 'transparent',
-														zeroLineWidth: 0,
-														tickMarkLength: 15,
+														// zeroLineColor: 'transparent',
+														zeroLineWidth: 3,
+														tickMarkLength: 10,
+														lineWidth: 3,
+														
 													},
 												},
 											],
 											xAxes: [
 												{
-													// barThickness: 10,
+													barThickness: 12,
 													barPercentage: 0.3,
+													borderWidth:88,
 													gridLines: {
 														lineWidth: 0,
 														zeroLineColor: 'transparent',
@@ -290,21 +293,21 @@ function Revenue() {
 						<h4>Revenue Variables</h4>
 						<RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 					</div>
-					<div className='col-3 col-xl-3' style={{ backgroundColor: '#edf2f9', padding: "10px", borderRadius: "20px"  }}>
+					<div className='col-3 col-xl-3' style={{ backgroundColor: '#edf2f9', padding: "10px", borderRadius: "20px" }}>
 						<h4>Growth Variable</h4>
-						<GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass}/>
+						<GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
 					</div>
 					<div className='col-3 col-xl-3'>
 						<h4>Major Expense Variables</h4>
 						{revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
 					</div>
 				</div>
-			<div className='row'>
-				<div className='col-8 col-xl-8'>
-					<h4>Startup Capital Variables</h4>
-					{revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
+				<div className='row'>
+					<div className='col-8 col-xl-8'>
+						<h4>Startup Capital Variables</h4>
+						{revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 	) : (

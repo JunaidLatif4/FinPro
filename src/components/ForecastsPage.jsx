@@ -13,6 +13,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 
 import MoneyBoxForecast from './ProgressComponents/MoneyBox'
+import ForecastsBarChart from './Forecasts Components/ForecastsBarChart'
 import './CSS/ForecastsPage.scss'
 const Styles = makeStyles({
     btn: {
@@ -114,8 +115,10 @@ const ForcastsPage = () => {
                                 </>
                             )
                         })
-
                     }
+                </div>
+                <div className="forecastsbarchart">
+                    <ForecastsBarChart/>
                 </div>
             </div>
         </>
