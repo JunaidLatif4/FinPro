@@ -3,7 +3,10 @@ import React from "react";
 import { withStyles, makeStyles, Divider } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import InputBase from "@material-ui/core/InputBase";
+import MenuItem from '@material-ui/core/MenuItem';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import Dialog from "@material-ui/core/Dialog";
+import Select from '@material-ui/core/Select';
 import NativeSelect from "@material-ui/core/NativeSelect";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
@@ -14,9 +17,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import ListSubheader from '@material-ui/core/ListSubheader';
 
 
 import "./CSS/Share.scss";
@@ -69,10 +69,10 @@ const DialogActions = withStyles((theme) => ({
 const MStyles = makeStyles({
     btn: {
         color: "#aaa",
-        margin: "0 .5rem 0 0",
+        margin: "0 0 0 0",
 
         "& svg": {
-            fontSize: "2.5rem",
+            fontSize: "2rem",
         },
     },
     formdiv: {

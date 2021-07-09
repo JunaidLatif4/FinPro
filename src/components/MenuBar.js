@@ -6,12 +6,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { AuthContext } from '../context/context';
 
+import { Button } from '@material-ui/core'
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
-import ShareIcon from '@material-ui/icons/Share';
 import SettingsIcon from '@material-ui/icons/Settings';
-import { Button } from '@material-ui/core'
+import TableChartIcon from '@material-ui/icons/TableChart';
 
 import Share from './Menu Components/Share'
 
@@ -79,12 +79,12 @@ const useStyles = makeStyles((theme) => ({
 			borderRadius: '50%',
 		},
 	},
-	btn:{
-		color:'#aaa',
-		margin:'0 .5rem 0 0',
+	btn: {
+		color: '#aaa',
+		margin: '0 .7rem 0 0',
 
-		'& svg':{
-			fontSize:'2.5rem'
+		'& svg': {
+			fontSize: '2rem'
 		}
 
 	}
@@ -122,11 +122,8 @@ function MenuBar(props) {
 			<AppBar style={isAuthenticated ? { width: `calc(100% - ${drawerWidth}px)` } : { width: '100%' }} className={classes.appBar}>
 				<Toolbar>
 					<div style={{ flexGrow: 1 }}></div>
-					{/* <Button className={classes.btn}><ShareIcon/></Button> */}
-					<Share/>
-					<Button className={classes.btn}><SettingsIcon/></Button>
-					
-					
+					<Share />
+					<Button className={classes.btn}><SettingsIcon /></Button>
 					<Dropdown>
 						<Dropdown.Toggle as={CustomToggle} id='dropdown-custom-components'>
 							<img src={user && user.profile ? `${user.profile}` : Profile} alt='user profile' />
@@ -147,7 +144,7 @@ function MenuBar(props) {
 							<Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
-					
+
 				</Toolbar>
 			</AppBar>
 
@@ -197,17 +194,22 @@ function MenuBar(props) {
 					</li>
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/stepper'>
-							<ContactSupportIcon/> Stepper
+							<ContactSupportIcon /> Stepper
 						</NavLink>
 					</li>
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/progress'>
-							<DonutLargeIcon/> Progress
+							<DonutLargeIcon /> Progress
 						</NavLink>
 					</li>
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/forecasts'>
-						<TrendingUpOutlinedIcon/> Forecasts
+							<TrendingUpOutlinedIcon /> Forecasts
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink className='nav-link' activeClassName='active' to='/table'>
+							<TableChartIcon /> Table
 						</NavLink>
 					</li>
 				</ul>

@@ -9,7 +9,6 @@ import FolderSharedOutlinedIcon from '@material-ui/icons/FolderSharedOutlined';
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import TimelineIcon from '@material-ui/icons/Timeline';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 
 import MoneyBoxForecast from './ProgressComponents/MoneyBox'
