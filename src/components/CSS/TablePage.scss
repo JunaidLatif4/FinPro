@@ -1,3 +1,29 @@
 .table_conatiner{
+    
+    table{
+        border-collapse: collapse;
+        font-size: 1.5rem;
+    }
+    th , td{
+        border: 2px solid black;
+        text-align: center;
+        padding: 0.5rem 2rem;
+    }
 
+    .headingtd{
+        background-color: #edf2f9;
+    }
+    
+    .nesttd{
+        border: none;
+    }
+    
+    .totalheading{
+        background-color: #edf2f9;
+        font-weight: bold;
+    }
+    .total{
+        border: none;
+        font-weight: bold;
+    }
 }
