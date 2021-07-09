@@ -14,7 +14,13 @@ import CloseIcon from "@material-ui/icons/Close";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import ListSubheader from '@material-ui/core/ListSubheader';
+
+
 import "./CSS/Share.scss";
+import { useState } from "react";
 
 const styles = (theme) => ({
     root: {
@@ -109,58 +115,42 @@ const ShareStyles = makeStyles({
     },
 });
 
-const ShareDiv = ({ props }) => {
+const ShareDiv = (props) => {
     const classes = ShareStyles();
     return (
         <>
-            <div className={classes.sharedata_container}>
-                <InputBase placeholder="Enter Email Junaid" />
+            <div style={{ margin: '1rem 0' }}>
+                <div className={classes.sharedata_container}>
+                    <InputBase fullWidth value={props.data.email} />
 
-                <NativeSelect
-                    value="junaid"
-                    name="age"
-                    // onChange={handleChange}
-                    disableUnderline
-                >
-                    <optgroup label="Full Control">
-                        <option value={10}>Ten</option>
-                    </optgroup>
-                    <option value={20}>Twenty</option>
-                    <option value={30}>Thirty</option>
-                    <option value={"junaid"}>Junaid</option>
-                </NativeSelect>
-                <div>
-                    <Button>
-                        {" "}
-                        <DeleteForeverOutlinedIcon />
-                    </Button>
+                    <Select
+                        value={props.data.access}
+                        name="age"
+                        // onChange={handleChange}
+                        disableUnderline
+                    >
+                        <MenuItem value={"full"}>Full Access</MenuItem>
+                        <ListSubheader>Can edit & share with others.</ListSubheader>
+                        <MenuItem value={"edit"}>Can Edit</MenuItem>
+                        <ListSubheader>Can edit but not share with others.</ListSubheader>
+                        <MenuItem value={"view"}>Can View</MenuItem>
+                        <ListSubheader>Cannot edit or share with others.</ListSubheader>
+                    </Select>
+                    <div>
+                        <Button onClick={()=> props.del(props.data.email)}>
+                            <DeleteForeverOutlinedIcon />
+                        </Button>
+                    </div>
                 </div>
+                <Divider />
             </div>
-            <Divider />
         </>
     );
 };
 
-const Share = () => {
-    const classes = MStyles();
-
-    const [open, setOpen] = React.useState(false);
-    const [age, setAge] = React.useState("junaid");
-
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     const ShareData = [
         {
-            email: "junaidlatif@gmail.com",
+            email: "junaidlatif@gmail.comsdsdsdsdsdsd",
             access: "full",
         },
         {
@@ -176,6 +166,36 @@ const Share = () => {
             access: "full",
         },
     ];
+
+const Share = () => {
+    const classes = MStyles();
+
+    const [open, setOpen] = React.useState(false);
+    const [age, setAge] = React.useState("junaid");
+
+    const [invitesData , setInvitesData] = useState(ShareData)
+
+    const handleChange = (event) => {
+        setAge(event.target.value);
+    };
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+    const del = (email)=>{
+        setInvitesData(
+            invitesData.filter((data)=>{
+                return(
+                    data.email !== email
+                )
+            })
+        )
+    }
 
     return (
         <>
@@ -214,10 +234,10 @@ const Share = () => {
 
                             <div className={classes.datadiv}>
                                 {
-                                    ShareData.map((data, index) => {
+                                    invitesData.map((data, index) => {
                                         return (
                                             <>
-                                                <ShareDiv />
+                                                <ShareDiv key="index" data={data} del={del}/>
                                             </>
                                         )
                                     })
