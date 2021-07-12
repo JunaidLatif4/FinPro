@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Bar } from 'react-chartjs-2';
 import { FormControl, InputBase, NativeSelect } from '@material-ui/core';
@@ -18,6 +19,8 @@ import GrowthRates from './GrowthRateInputs';
 import ExpenseInputs from './ExpenseInputs';
 import numeral from 'numeral';
 import StartingCapitalInput from './StartingCapitalInput';
+
+import MoneyBoxPage from '../ProgressComponents/MoneyBox';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -141,175 +144,178 @@ const ForecastsBarChart = () => {
     console.log(userSub);
 
     return userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? (
-        <div className='container-fluid'>
-            <div className='row'>
-                <div className='col-12 col-xl-12'>
-                    {msg && (
-                        <div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
-                            <strong>{msg}</strong>
-                            <button onClick={handleCloseAlert} type='button' className='close' data-dismiss='alert' aria-label='Close'>
-                                <span aria-hidden='true'>×</span>
-                            </button>
-                        </div>
-                    )}
-                    {err && (
-                        <div className={`alert alert-danger alert-dismissible fade ${alertClass}`} role='alert'>
-                            <strong>{err}</strong>
-                            <button onClick={handleCloseAlert} type='button' className='close' data-dismiss='alert' aria-label='Close'>
-                                <span aria-hidden='true'>×</span>
-                            </button>
-                        </div>
-                    )}
-                    <div className='card'>
-                        <div className='card-header'>
-                            <h4 className='card-header-title'>Revenue Forecast</h4>
-                            <div className='chart-handle-grup'>
-                                <div className='chart-dropdown'>
-                                    <span className='mr-3'>View By :</span>
-                                    <FormControl variant='outlined' className={classes.margin}>
-                                        <NativeSelect id='demo-customized-select-native' value={chartValue} onChange={handleChange} input={<BootstrapInput />}>
-                                            <option defaultValue='year' value='year'>
-                                                Year
-                                            </option>
-                                            <option value='quarter'>Quarter</option>
-                                            <option value='month'>Month</option>
-                                        </NativeSelect>
-                                    </FormControl>
+        <>
+            <MoneyBoxPage />
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-12 col-xl-12'>
+                        {msg && (
+                            <div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
+                                <strong>{msg}</strong>
+                                <button onClick={handleCloseAlert} type='button' className='close' data-dismiss='alert' aria-label='Close'>
+                                    <span aria-hidden='true'>×</span>
+                                </button>
+                            </div>
+                        )}
+                        {err && (
+                            <div className={`alert alert-danger alert-dismissible fade ${alertClass}`} role='alert'>
+                                <strong>{err}</strong>
+                                <button onClick={handleCloseAlert} type='button' className='close' data-dismiss='alert' aria-label='Close'>
+                                    <span aria-hidden='true'>×</span>
+                                </button>
+                            </div>
+                        )}
+                        <div className='card'>
+                            <div className='card-header'>
+                                <h4 className='card-header-title'>Revenue Forecast</h4>
+                                <div className='chart-handle-grup'>
+                                    <div className='chart-dropdown'>
+                                        <span className='mr-3'>View By :</span>
+                                        <FormControl variant='outlined' className={classes.margin}>
+                                            <NativeSelect id='demo-customized-select-native' value={chartValue} onChange={handleChange} input={<BootstrapInput />}>
+                                                <option defaultValue='year' value='year'>
+                                                    Year
+                                                </option>
+                                                <option value='quarter'>Quarter</option>
+                                                <option value='month'>Month</option>
+                                            </NativeSelect>
+                                        </FormControl>
+                                    </div>
+                                    <ButtonGroup aria-label='Basic example'>
+                                        <span className='btn-custom-group'>Export</span>
+                                        <Button className='btn-custom-group'>
+                                            {revenues && revenues.revenuInputs ? (
+                                                <CSVLink
+                                                    className='csv-download-btn'
+                                                    filename={'data.csv'}
+                                                    data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly' || 'Quarterly' || 'Monthly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly' || 'Quarterly' || 'Yearly')}>
+                                                    CSV
+                                                </CSVLink>
+                                            ) : (
+                                                'CSV'
+                                            )}
+                                        </Button>
+                                        <Button onClick={generatePdf} className='btn-custom-group'>
+                                            PDF
+                                        </Button>
+                                    </ButtonGroup>
                                 </div>
-                                <ButtonGroup aria-label='Basic example'>
-                                    <span className='btn-custom-group'>Export</span>
-                                    <Button className='btn-custom-group'>
-                                        {revenues && revenues.revenuInputs ? (
-                                            <CSVLink
-                                                className='csv-download-btn'
-                                                filename={'data.csv'}
-                                                data={chartValue === 'year' ? revenues.revenuInputs.filter((rev) => rev.type === 'Yearly' || 'Quarterly' || 'Monthly') : chartValue === 'quarter' ? revenues.revenuInputs.filter((rev) => rev.type === 'Quarterly' || 'Yearly' || 'Monthly') : revenues.revenuInputs.filter((rev) => rev.type === 'Monthly' || 'Quarterly' || 'Yearly')}>
-                                                CSV
-                                            </CSVLink>
-                                        ) : (
-                                            'CSV'
-                                        )}
-                                    </Button>
-                                    <Button onClick={generatePdf} className='btn-custom-group'>
-                                        PDF
-                                    </Button>
-                                </ButtonGroup>
+                            </div>
+                            <div className='card-body'>
+                                {chartLoader ? (
+                                    <div className='loader-wrapper'>
+                                        <div className='spinner-border spinner-border-sm' role='status'>
+                                            <span className='sr-only'>Loading...</span>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <Bar
+                                        height={400}
+                                        data={reports}
+                                        options={{
+                                            tooltips: {
+                                                callbacks: {
+                                                    title: function (tooltipItem, data) {
+                                                        return data['labels'][tooltipItem[0]['index']];
+                                                    },
+                                                    label: function (tooltipItem, data) {
+                                                        let value;
+                                                        data['datasets'].forEach((d) => {
+                                                            // console.log(d['data'][tooltipItem['index']], tooltipItem);
+                                                            if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
+                                                                value = (user.currency || "$") + ' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
+                                                            }
+                                                        });
+                                                        // console.log(value);
+                                                        return value;
+                                                    },
+                                                    afterLabel: function (tooltipItem, data) { },
+                                                },
+                                                backgroundColor: '#FFF',
+                                                borderWidth: 2,
+                                                xPadding: 15,
+                                                yPadding: 15,
+                                                borderColor: '#ddd',
+                                                titleFontSize: 16,
+                                                titleFontColor: '#0066ff',
+                                                bodyFontColor: '#000',
+                                                bodyFontSize: 14,
+                                                displayColors: false,
+                                            },
+                                            cornerRadius: 20,
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            scales: {
+                                                yAxes: [
+                                                    {
+                                                        ticks: {
+                                                            callback: function (value) {
+                                                                return (user.currency || "$") + ' ' + numeral(value).format('0.0a');
+                                                            },
+                                                            stepSize: 200,
+                                                            beginAtZero: true,
+                                                        },
+                                                        gridLines: {
+                                                            borderDash: [2],
+                                                            // zeroLineColor: 'transparent',
+                                                            zeroLineWidth: 3,
+                                                            tickMarkLength: 10,
+                                                            lineWidth: 3,
+
+                                                        },
+                                                    },
+                                                ],
+                                                xAxes: [
+                                                    {
+                                                        barThickness: 12,
+                                                        barPercentage: 0.3,
+                                                        borderWidth: 88,
+                                                        gridLines: {
+                                                            lineWidth: 0,
+                                                            zeroLineColor: 'transparent',
+                                                        },
+                                                    },
+                                                ],
+                                            },
+                                        }}
+                                        legend={{
+                                            display: true,
+                                            position: 'bottom',
+                                            labels: {
+                                                usePointStyle: true,
+                                                boxWidth: 10,
+                                            },
+                                        }}
+                                    />
+                                )}
                             </div>
                         </div>
-                        <div className='card-body'>
-                            {chartLoader ? (
-                                <div className='loader-wrapper'>
-                                    <div className='spinner-border spinner-border-sm' role='status'>
-                                        <span className='sr-only'>Loading...</span>
-                                    </div>
-                                </div>
-                            ) : (
-                                <Bar
-                                    height={400}
-                                    data={reports}
-                                    options={{
-                                        tooltips: {
-                                            callbacks: {
-                                                title: function (tooltipItem, data) {
-                                                    return data['labels'][tooltipItem[0]['index']];
-                                                },
-                                                label: function (tooltipItem, data) {
-                                                    let value;
-                                                    data['datasets'].forEach((d) => {
-                                                        // console.log(d['data'][tooltipItem['index']], tooltipItem);
-                                                        if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-                                                            value = (user.currency || "$") + ' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
-                                                        }
-                                                    });
-                                                    // console.log(value);
-                                                    return value;
-                                                },
-                                                afterLabel: function (tooltipItem, data) { },
-                                            },
-                                            backgroundColor: '#FFF',
-                                            borderWidth: 2,
-                                            xPadding: 15,
-                                            yPadding: 15,
-                                            borderColor: '#ddd',
-                                            titleFontSize: 16,
-                                            titleFontColor: '#0066ff',
-                                            bodyFontColor: '#000',
-                                            bodyFontSize: 14,
-                                            displayColors: false,
-                                        },
-                                        cornerRadius: 20,
-                                        responsive: true,
-                                        maintainAspectRatio: false,
-                                        scales: {
-                                            yAxes: [
-                                                {
-                                                    ticks: {
-                                                        callback: function (value) {
-                                                            return (user.currency || "$") + ' ' + numeral(value).format('0.0a');
-                                                        },
-                                                        stepSize: 200,
-                                                        beginAtZero: true,
-                                                    },
-                                                    gridLines: {
-                                                        borderDash: [2],
-                                                        // zeroLineColor: 'transparent',
-                                                        zeroLineWidth: 3,
-                                                        tickMarkLength: 10,
-                                                        lineWidth: 3,
+                    </div>
 
-                                                    },
-                                                },
-                                            ],
-                                            xAxes: [
-                                                {
-                                                    barThickness: 12,
-                                                    barPercentage: 0.3,
-                                                    borderWidth: 88,
-                                                    gridLines: {
-                                                        lineWidth: 0,
-                                                        zeroLineColor: 'transparent',
-                                                    },
-                                                },
-                                            ],
-                                        },
-                                    }}
-                                    legend={{
-                                        display: true,
-                                        position: 'bottom',
-                                        labels: {
-                                            usePointStyle: true,
-                                            boxWidth: 10,
-                                        },
-                                    }}
-                                />
-                            )}
+
+                    <div className='row' style={{ padding: '0' }}>
+                        <div className='col-5 col-xl-6' style={{ paddingLeft: '0' }}>
+                            <h4>Revenue Variables</h4>
+                            <RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
+                        </div>
+                        <div className='col-3 col-xl-3' style={{ backgroundColor: '#edf2f9', padding: "10px", borderRadius: "20px" }}>
+                            <h4>Growth Variable</h4>
+                            <GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
+                        </div>
+                        <div className='col-3 col-xl-3' style={{ paddingRight: '0' }}>
+                            <h4>Major Expense Variables</h4>
+                            {revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
                         </div>
                     </div>
-                </div>
-
-
-                <div className='row' style={{padding:'0'}}>
-                    <div className='col-5 col-xl-6' style={{paddingLeft:'0'}}>
-                        <h4>Revenue Variables</h4>
-                        <RevenueInputs chartValue={chartValue} revenues={revenues} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
-                    </div>
-                    <div className='col-3 col-xl-3' style={{ backgroundColor: '#edf2f9', padding: "10px", borderRadius: "20px" }}>
-                        <h4>Growth Variable</h4>
-                        <GrowthRates setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />
-                    </div>
-                    <div className='col-3 col-xl-3' style={{paddingRight:'0'}}>
-                        <h4>Major Expense Variables</h4>
-                        {revenues && revenues._id && <ExpenseInputs revenueId={revenues._id} expenseInputs={revenues.majorExpenseInput} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
-                    </div>
-                </div>
-                <div className='row'>
-                    <div className='col-8 col-xl-8'>
-                        <h4>Startup Capital Variables</h4>
-                        {revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
+                    <div className='row'>
+                        <div className='col-8 col-xl-8'>
+                            <h4>Startup Capital Variables</h4>
+                            {revenues && revenues._id && <StartingCapitalInput revenueId={revenues._id} startingCapital={revenues.startingCapital} setMsg={setMsg} setErr={setErr} setAlertClass={setAlertClass} />}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     ) : (
         <div className={`alert alert-success alert-dismissible fade ${alertClass}`} role='alert'>
             <strong>We think you'll like it here! Choose a free trial to get started. </strong>

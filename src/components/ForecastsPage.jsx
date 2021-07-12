@@ -1,19 +1,22 @@
 import React from 'react'
 
+import { Switch , Route , NavLink} from 'react-router-dom'
+
 import { Button, makeStyles, Divider } from '@material-ui/core'
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import ReceiptOutlinedIcon from '@material-ui/icons/ReceiptOutlined';
 import HomeWorkOutlinedIcon from '@material-ui/icons/HomeWorkOutlined';
 import PlaylistAddCheckOutlinedIcon from '@material-ui/icons/PlaylistAddCheckOutlined';
 import FolderSharedOutlinedIcon from '@material-ui/icons/FolderSharedOutlined';
-import TrendingUpIcon from "@material-ui/icons/TrendingUp";
-import TimelineIcon from '@material-ui/icons/Timeline';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 
-import MoneyBoxForecast from './ProgressComponents/MoneyBox'
 import ForecastsBarChart from './Forecasts Components/ForecastsBarChart'
+import Sales from '../views/Sales/Sales'
+import Marketing from '../views/Marketing/Marketing'
+import RD from '../views/RandD/RandD'
+import GA from '../views/GandA/GandA'
 import './CSS/ForecastsPage.scss'
+
 const Styles = makeStyles({
     btn: {
         width: '15%',
@@ -22,14 +25,18 @@ const Styles = makeStyles({
         fontFamily: 'cerebri sans',
         padding: '.8rem 1rem',
         borderRadius: '1rem',
-        fontSize: '1rem'
+        fontSize: '1rem',
+        '& a':{
+            color:"black"
+        }
     }
 })
 const ForecastNavBtn = ({ props }) => {
     const classes = Styles();
     return (
         <>
-            <Button startIcon={props.icon} className={classes.btn}> {props.title} </Button>
+            <Button startIcon={props.icon} className={classes.btn}><NavLink to={`/forecasts/${props.link}`} > {props.title}  </NavLink></Button>
+           
         </>
     )
 }
@@ -39,56 +46,37 @@ const ForcastsPage = () => {
     const ForecastsNavBtnData = [
         {
             title: 'Revenue',
+            link:"revenue",
             icon: <EqualizerIcon />
         },
         {
             title: 'Sales',
+            link:"sales",
             icon: <ReceiptOutlinedIcon />
         },
         {
             title: 'Marketing',
+            link:"marketing",
             icon: <HomeWorkOutlinedIcon />
         },
         {
             title: 'R & D',
+            link:"rd",
             icon: <EqualizerIcon />
         },
         {
             title: 'G & A',
+            link:"ga",
             icon: <PlaylistAddCheckOutlinedIcon />
         },
         {
             title: 'Reports',
+            link:"reports",
             icon: <FolderSharedOutlinedIcon />
         },
     ]
 
-    const MoneyBoxForecastData = [
-        {
-            title: "MARKITING SPEND FORECAST",
-            money: "789,000",
-            percent: "+3.19",
-            icon: TrendingUpIcon
-        },
-        {
-            title: "REVENUE FORECAST",
-            money: "8,384,210",
-            percent: "+10.19",
-            icon: EqualizerIcon
-        },
-        {
-            title: "SALES SPEND FORECAST",
-            money: "459,033",
-            percent: "-4.29",
-            icon: TimelineIcon
-        },
-        {
-            title: "STARTING CAPITAL",
-            money: "799,380",
-            percent: "+9.30",
-            icon: AttachMoneyIcon
-        },
-    ]
+
 
     return (
         <>
@@ -105,20 +93,14 @@ const ForcastsPage = () => {
                     }
                 </div>
                 <Divider />
-                <div className="moneyforecast">
-                    {
-                        MoneyBoxForecastData.map((data, index) => {
-                            return (
-                                <>
-                                    <MoneyBoxForecast key={index} props={data} />
-                                </>
-                            )
-                        })
-                    }
-                </div>
-                <div className="forecastsbarchart">
-                    <ForecastsBarChart/>
-                </div>
+                <switch>
+                    <Route exact path="/forecasts/revenue" component={ForecastsBarChart}/>
+                    <Route exact path="/forecasts/sales" component={Sales}/>
+                    <Route exact path="/forecasts/marketing" component={Marketing}/>
+                    <Route exact path="/forecasts/rd" component={RD}/>
+                    <Route exact path="/forecasts/ga" component={GA}/>
+                </switch>
+                
             </div>
         </>
     )

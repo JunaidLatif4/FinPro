@@ -28,8 +28,8 @@ function Routes() {
 	return isAuthenticated ? (
 		<MenuBar>
 			<Switch>
-				<Route exact path='/' render={() => <Redirect to='/revenue' />} />
-				<Route exact path='/revenue' component={Revenue} />
+				<Route exact path='/' render={() => <Redirect to='/stepper' />} />
+				{/* <Route exact path='/revenue' component={Revenue} /> */}
 				<Route exact path='/sales' component={Sales} />
 				<Route exact path='/marketing' component={Marketing} />
 				<Route exact path='/r-and-d' component={Rand} />
@@ -41,10 +41,10 @@ function Routes() {
 
 				<Route exact path ='/stepper' component={Stepper} />
 				<Route exact path ='/progress' component={ProgressPage} />
-				<Route exact path ='/forecasts' component={ForecastsPage} />
+				<Route path ='/forecasts' component={ForecastsPage} />
 				<Route exact path ='/table' component={TablePage} />
 
-				<Route path='*' render={() => <Redirect to='/revenue' />} />
+				<Route path='*' render={() => <Redirect to='/stepper' />} />
 			</Switch>
 		</MenuBar>
 	) : (
