@@ -121,7 +121,7 @@ function Reports() {
 	};
 
 	const generateCSV = () => {
-		console.log( "This is The REports !!!!!!!!!!!!!!! ======" , reports);
+		console.log("This is The REports !!!!!!!!!!!!!!! ======", reports);
 		if (reports && reports.datasets.length > 0) {
 			let revenues = reports.datasets[0].data;
 			let expenses = reports.datasets[1].data;
@@ -278,13 +278,13 @@ function Reports() {
 															let value;
 															data['datasets'].forEach((d) => {
 																if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
-																	value = (user.currency || "$") +' ' + parseInt(d['data'][tooltipItem['index']]).toLocaleString();
+																	value = (user.currency || "$") + ' ' + parseInt(d['data'][tooltipItem['index']]).toLocaleString();
 																}
 															});
-															console.log( "The Value =========" , value)
+															console.log("The Value =========", value)
 															return value;
 														},
-														afterLabel: function (tooltipItem, data) {},
+														afterLabel: function (tooltipItem, data) { },
 													},
 													backgroundColor: '#FFF',
 													borderWidth: 2,
@@ -305,7 +305,7 @@ function Reports() {
 														{
 															ticks: {
 																callback: function (value) {
-																	return (user.currency || "$") +' ' + numeral(value).format('0.0a');
+																	return (user.currency || "$") + ' ' + numeral(value).format('0.0a');
 																},
 																stepSize: 200,
 																beginAtZero: true,
