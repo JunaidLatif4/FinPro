@@ -75,3 +75,5 @@ const MoneyBoxPage = () => {
 }
 
 export default MoneyBoxPage;
+
+export {MoneyBox};

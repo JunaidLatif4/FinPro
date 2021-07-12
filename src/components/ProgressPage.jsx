@@ -1,6 +1,6 @@
 import React from "react";
 
-import MoneyBox from './ProgressComponents/MoneyBox'
+import { MoneyBox } from './ProgressComponents/MoneyBox'
 import ProgressBar from './ProgressComponents/ProgressBar'
 import InformationSection from './ProgressComponents/InformationSection'
 
@@ -108,9 +108,9 @@ const ProgressPage = () => {
                         }
                     </div>
                     <div className="information">
-                        <h3> Benchmark Information <InfoOutlinedIcon/> </h3>
-                        <Divider/>
-                        <InformationSection/>
+                        <h3> Benchmark Information <InfoOutlinedIcon /> </h3>
+                        <Divider />
+                        <InformationSection />
                     </div>
 
                 </div>

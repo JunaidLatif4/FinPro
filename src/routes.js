@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import MenuBar from './components/MenuBar';
 
-import Stepper from './components/Stepper' 
+import Stepper from './components/Stepper'
 import ProgressPage from './components/ProgressPage';
 import ForecastsPage from './components/ForecastsPage';
 import TablePage from './components/TablePage';
@@ -30,19 +30,19 @@ function Routes() {
 			<Switch>
 				<Route exact path='/' render={() => <Redirect to='/stepper' />} />
 				{/* <Route exact path='/revenue' component={Revenue} /> */}
-				<Route exact path='/sales' component={Sales} />
-				<Route exact path='/marketing' component={Marketing} />
-				<Route exact path='/r-and-d' component={Rand} />
-				<Route exact path='/g-and-a' component={GandA} />
+				{/* <Route exact path='/sales' component={Sales} /> */}
+				{/* <Route exact path='/marketing' component={Marketing} /> */}
+				{/* <Route exact path='/r-and-d' component={Rand} /> */}
+				{/* <Route exact path='/g-and-a' component={GandA} /> */}
 				<Route exact path='/reports' component={Reports} />
 				<Route exact path='/settings' component={Settings} />
 				<Route exact path='/billing' component={Billing} />
 				<Route exact path='/pricing' component={Pricing} />
 
-				<Route exact path ='/stepper' component={Stepper} />
-				<Route exact path ='/progress' component={ProgressPage} />
-				<Route path ='/forecasts' component={ForecastsPage} />
-				<Route exact path ='/table' component={TablePage} />
+				<Route exact path='/stepper' component={Stepper} />
+				<Route exact path='/progress' component={ProgressPage} />
+				<Route path='/forecasts' component={ForecastsPage} />
+				<Route exact path='/table' component={TablePage} />
 
 				<Route path='*' render={() => <Redirect to='/stepper' />} />
 			</Switch>

@@ -162,7 +162,7 @@ function MenuBar(props) {
 				</div>
 
 				<ul className={[classes.TopNav, 'navbar-nav'].join(' ')}>
-					<li className='nav-item'>
+					{/* <li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/revenue'>
 							<i className='fe fe-bar-chart'></i> Revenue
 						</NavLink>
@@ -186,12 +186,7 @@ function MenuBar(props) {
 						<NavLink className='nav-link' activeClassName='active' to='/g-and-a'>
 							<SpeakerNotesOutlinedIcon /> G&A
 						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/reports'>
-							<i className='fe fe-folder'></i> Reports
-						</NavLink>
-					</li>
+					</li> */}
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/stepper'>
 							<ContactSupportIcon /> Stepper
@@ -199,7 +194,7 @@ function MenuBar(props) {
 					</li>
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/progress'>
-							<DonutLargeIcon /> Progress
+							<DonutLargeIcon /> Dashboard
 						</NavLink>
 					</li>
 					<li className='nav-item'>
@@ -210,6 +205,11 @@ function MenuBar(props) {
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/table'>
 							<TableChartIcon /> Table
+						</NavLink>
+					</li>
+					<li className='nav-item'>
+						<NavLink className='nav-link' activeClassName='active' to='/reports'>
+							<i className='fe fe-folder'></i> Reports
 						</NavLink>
 					</li>
 				</ul>
