@@ -6,24 +6,18 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { AuthContext } from '../context/context';
 
-import { Button } from '@material-ui/core'
-import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import { Button } from '@material-ui/core';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
 import SettingsIcon from '@material-ui/icons/Settings';
-import TableChartIcon from '@material-ui/icons/TableChart';
 
-import Share from './Menu Components/Share'
+import Share from './Menu Components/Share';
 
-import SpeakerNotesOutlinedIcon from '@material-ui/icons/SpeakerNotesOutlined';
-import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined';
-import InsertChartOutlinedIcon from '@material-ui/icons/InsertChartOutlined';
 import LOGO from '../assets/logo-black.png';
 import { Dropdown } from 'react-bootstrap';
 import Profile from '../assets/profile.png';
-import { BASE_URL } from '../context/axios';
+import { getCompany } from '../context/fetch-service';
 const drawerWidth = 240;
-
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -47,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: theme.mixins.toolbar,
 	content: {
 		flexGrow: 1,
-		// backgroundColor: theme.palette.background.default,
 		padding: theme.spacing(3),
 		paddingTop: '80px',
 		overflow: 'hidden',
@@ -84,19 +77,20 @@ const useStyles = makeStyles((theme) => ({
 		margin: '0 .7rem 0 0',
 
 		'& svg': {
-			fontSize: '2rem'
-		}
-
-	}
+			fontSize: '2rem',
+		},
+	},
 }));
 
 function MenuBar(props) {
 	const history = useHistory();
 	const classes = useStyles();
 	const {
-		state: { user, isAuthenticated },
+		state: { user, isAuthenticated, access_token },
 		dispatch,
 	} = React.useContext(AuthContext);
+
+	const [myCompany, setMyCompany] = React.useState(null);
 
 	const handleLogout = () => {
 		dispatch({
@@ -117,13 +111,33 @@ function MenuBar(props) {
 			{children}
 		</span>
 	));
+	React.useEffect(() => {
+		getCompany()
+			.then((company) => {
+				setMyCompany(company);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
+	React.useEffect(() => {
+		getCompany()
+			.then((company) => {
+				setMyCompany(company);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
 	return (
 		<div className={classes.root}>
 			<AppBar style={isAuthenticated ? { width: `calc(100% - ${drawerWidth}px)` } : { width: '100%' }} className={classes.appBar}>
 				<Toolbar>
 					<div style={{ flexGrow: 1 }}></div>
 					<Share />
-					<Button className={classes.btn}><SettingsIcon /></Button>
+					<Button className={classes.btn}>
+						<SettingsIcon />
+					</Button>
 					<Dropdown>
 						<Dropdown.Toggle as={CustomToggle} id='dropdown-custom-components'>
 							<img src={user && user.profile ? `${user.profile}` : Profile} alt='user profile' />
@@ -144,7 +158,6 @@ function MenuBar(props) {
 							<Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
 						</Dropdown.Menu>
 					</Dropdown>
-
 				</Toolbar>
 			</AppBar>
 
@@ -162,36 +175,6 @@ function MenuBar(props) {
 				</div>
 
 				<ul className={[classes.TopNav, 'navbar-nav'].join(' ')}>
-					{/* <li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/revenue'>
-							<i className='fe fe-bar-chart'></i> Revenue
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/sales'>
-							<InsertChartOutlinedIcon /> Sales
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/marketing'>
-							<StorefrontOutlinedIcon /> Marketing
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/r-and-d'>
-							<i className='fe fe-command'></i> R&D
-						</NavLink>
-					</li>
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/g-and-a'>
-							<SpeakerNotesOutlinedIcon /> G&A
-						</NavLink>
-					</li> */}
-					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/stepper'>
-							<ContactSupportIcon /> Stepper
-						</NavLink>
-					</li>
 					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/progress'>
 							<DonutLargeIcon /> Dashboard
@@ -203,18 +186,12 @@ function MenuBar(props) {
 						</NavLink>
 					</li>
 					<li className='nav-item'>
-						<NavLink className='nav-link' activeClassName='active' to='/table'>
-							<TableChartIcon /> Table
-						</NavLink>
-					</li>
-					<li className='nav-item'>
 						<NavLink className='nav-link' activeClassName='active' to='/reports'>
 							<i className='fe fe-folder'></i> Reports
 						</NavLink>
 					</li>
 				</ul>
 			</Drawer>
-
 			<main className={classes.content}>{props.children}</main>
 		</div>
 	);

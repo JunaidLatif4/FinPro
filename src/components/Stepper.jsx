@@ -1,12 +1,12 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
+
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-import Check from "@material-ui/icons/Check";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -15,6 +15,7 @@ import BusStep1 from './Steps/BusinessModelStep1'
 import ComStep2 from './Steps/CompanyStageStep2'
 import IntStep3 from './Steps/IntegrationsStep3'
 import FinStep4 from './Steps/FinishStep4'
+
 import "./CSS/Stepper.scss";
 
 const QontoConnector = withStyles({
@@ -50,15 +51,15 @@ const useQontoStepIconStyles = makeStyles({
     active: {
         color: "#5ac2de",
         backgroundColor: "#5ac2de",
-        boxSizing:'border-box'
+        boxSizing: 'border-box'
 
     },
     circle: {
         width: 22,
         height: 22,
         border: '2px solid #5ac2de',
-        boxSizing:'border-box'
-        
+        boxSizing: 'border-box'
+
     },
     completed: {
         color: "#5ac2de",
@@ -70,7 +71,7 @@ const useQontoStepIconStyles = makeStyles({
         backgroundColor: "currentColor",
         width: 22,
         height: 22,
-        boxSizing:'border-box',
+        boxSizing: 'border-box',
     },
 });
 
@@ -85,7 +86,6 @@ function QontoStepIcon(props) {
             })}
         >
             {completed ? (
-                // <Check className={classes.completed} />
                 <div className={classes.next} />
 
             ) : (
@@ -151,14 +151,6 @@ const StepperBody = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
-    };
-
     return (
         <>
             <div className="stepper_container">
@@ -182,13 +174,6 @@ const StepperBody = () => {
                             </Typography>
                         </div>
                         <div className="stepper_btn">
-                            <Button
-                                disabled={activeStep === 0}
-                                onClick={handleBack}
-                                className={classes.button}
-                            >
-                                Back
-                            </Button>
                             {
                                 activeStep === steps.length - 1 ? null
                                     :
@@ -202,51 +187,14 @@ const StepperBody = () => {
                                         </Button>
                                     </>
                             }
-
                         </div>
                     </div>
-
-                    {/* <div>
-                        {activeStep === steps.length ? (
-                            <div className="stepper_btn">
-                                <Typography className={classes.instructions}>
-                                    All steps completed - you&apos;re finished
-                                </Typography>
-                                <Button onClick={handleReset} className={classes.button}>
-                                    Reset
-                                </Button>
-                            </div>
-                        ) : (
-                            <div>
-                                <div className="steps">
-                                    <Typography className={classes.instructions}>
-                                        {getStepContent(activeStep)}
-                                    </Typography>
-                                </div>
-                                <div className="stepper_btn">
-                                    <Button
-                                        disabled={activeStep === 0}
-                                        onClick={handleBack}
-                                        className={classes.button}
-                                    >
-                                        Back
-                                    </Button>
-                                    <Button
-                                        variant="contained"
-                                        onClick={handleNext}
-                                        className={classes.button}
-                                    >
-                                        {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                                    </Button>
-                                </div>
-                            </div>
-                        )}
-                    </div> */}
-
                 </div>
             </div>
         </>
     );
 };
+
+
 
 export default StepperBody;

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from 'axios';
 
 import { withStyles, makeStyles, Divider } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -7,17 +8,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Dialog from "@material-ui/core/Dialog";
 import Select from '@material-ui/core/Select';
-import NativeSelect from "@material-ui/core/NativeSelect";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import ShareIcon from "@material-ui/icons/Share";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
-
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import "./CSS/Share.scss";
 import { useState } from "react";
@@ -58,13 +56,6 @@ const DialogContent = withStyles((theme) => ({
         padding: theme.spacing(2),
     },
 }))(MuiDialogContent);
-
-const DialogActions = withStyles((theme) => ({
-    root: {
-        margin: 0,
-        padding: theme.spacing(1),
-    },
-}))(MuiDialogActions);
 
 const MStyles = makeStyles({
     btn: {
@@ -137,7 +128,7 @@ const ShareDiv = (props) => {
                         <ListSubheader>Cannot edit or share with others.</ListSubheader>
                     </Select>
                     <div>
-                        <Button onClick={()=> props.del(props.data.email)}>
+                        <Button onClick={() => props.del(props.data._id)}>
                             <DeleteForeverOutlinedIcon />
                         </Button>
                     </div>
@@ -148,36 +139,32 @@ const ShareDiv = (props) => {
     );
 };
 
-    const ShareData = [
-        {
-            email: "junaidlatif@gmail.comsdsdsdsdsdsd",
-            access: "full",
-        },
-        {
-            email: "zahidghafoor40@gmail.com",
-            access: "edit",
-        },
-        {
-            email: "tayyabashraf47@gmail.com",
-            access: "view",
-        },
-        {
-            email: "amarayasin24@gmail.com",
-            access: "full",
-        },
-    ];
-
 const Share = () => {
     const classes = MStyles();
 
     const [open, setOpen] = React.useState(false);
-    const [age, setAge] = React.useState("junaid");
 
-    const [invitesData , setInvitesData] = useState(ShareData)
+    const [prog, setProg] = useState(true)
+    const [reload, setReload] = useState(true)
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    const [invitesData, setInvitesData] = useState([])
+    const [enteredData, setEnteredData] = useState({
+        email: "",
+        access: "full"
+    })
+
+    useEffect(async () => {
+        let url = 'http://localhost:8080/getallinvites'
+
+        axios.defaults.headers.common['authorization'] = `${localStorage.getItem('finProtoken')}`;
+        await axios.get(url)
+            .then((res) => {
+                console.log("The INVITES DATA RECEIVED ==== ", res)
+                setInvitesData([...res.data])
+            }).catch((err) => {
+                console.log('ERROR WHILE GETING INVITES DATA ======= ', err)
+            })
+    }, [reload])
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -186,16 +173,64 @@ const Share = () => {
         setOpen(false);
     };
 
-
-    const del = (email)=>{
-        setInvitesData(
-            invitesData.filter((data)=>{
-                return(
-                    data.email !== email
-                )
-            })
-        )
+    const enteringData = (data) => {
+        console.log(data.target.value)
+        const { name, value } = data.target;
+        setEnteredData((preValue) => {
+            return {
+                ...preValue,
+                [name]: value
+            }
+        })
+        console.log("Hellow IM Here")
     }
+
+    const del = async (id) => {
+        alert(id)
+        let url = "http://localhost:8080/delinvite"
+        axios.defaults.headers.common['authorization'] = `${localStorage.getItem('finProtoken')}`;
+        await axios.post(url, { id: id })
+            .then((res) => {
+                console.log("INVITE DELETED ====== ", res)
+                setReload((preValue) => {
+                    return (
+                        !preValue
+                    )
+                })
+            }).catch((err) => {
+                console.log("ERROR WHILE DELETING ==== ", err)
+            })
+    }
+
+    const savingInvites = async () => {
+        console.log(enteredData)
+
+        setProg(false)
+
+        let url = 'http://localhost:8080/invite';
+        axios.defaults.headers.common['authorization'] = `${localStorage.getItem('finProtoken')}`;
+        await axios
+            .post(url, { email: enteredData.email, access: enteredData.access })
+            .then((res) => {
+                console.log("Email SENDING-------", res);
+                setReload((preValue) => {
+                    return (
+                        !preValue
+                    )
+                })
+                setProg(true)
+            })
+            .catch((err) => {
+                console.log('SomeThing went wrong while sending Email', err);
+            });
+
+        setEnteredData({
+            email: "",
+            access: "full"
+        })
+    }
+
+
 
     return (
         <>
@@ -215,21 +250,41 @@ const Share = () => {
                         <DialogContent dividers>
                             <div className={classes.formdiv}>
                                 <div className={classes.nestdiv}>
-                                    <InputBase placeholder="Enter Email Junaid" />
+                                    <InputBase placeholder="Enter Email " value={enteredData.email} name="email" onChange={enteringData} />
 
-                                    <NativeSelect
-                                        value={age}
-                                        name="age"
-                                        onChange={handleChange}
+                                    <Select
+                                        value={enteredData.access}
+                                        name="access"
+                                        onChange={enteringData}
                                         disableUnderline
                                     >
-                                        <option value={10}>Ten</option>
-                                        <option value={20}>Twenty</option>
-                                        <option value={30}>Thirty</option>
-                                        <option value={"junaid"}>Junaid</option>
-                                    </NativeSelect>
+                                        <MenuItem value={"full"}>Full Access</MenuItem>
+                                        <ListSubheader>Can edit & share with others.</ListSubheader>
+                                        <MenuItem value={"edit"}>Can Edit</MenuItem>
+                                        <ListSubheader>Can edit but not share with others.</ListSubheader>
+                                        <MenuItem value={"view"}>Can View</MenuItem>
+                                        <ListSubheader>Cannot edit or share with others.</ListSubheader>
+                                    </Select>
                                 </div>
-                                <Button className={classes.invite_btn}> Invite </Button>
+                                {
+                                    invitesData.length >= 5 ?
+                                        <>
+                                            <Button className={classes.invite_btn} disabled> Invite </Button>
+                                        </> :
+                                        <>
+                                            {
+                                                prog ?
+                                                    <>
+                                                        <Button className={classes.invite_btn} onClick={savingInvites}> Invite </Button>
+                                                    </> :
+                                                    <>
+                                                        <div className={classes.invite_btn} style={{ padding: ".5rem 4rem .5rem 2rem" }}>
+                                                            <CircularProgress style={{ color: "#58d99b", display: "flex", justifyContent: "center", alignItems: "center" }} />
+                                                        </div>
+                                                    </>
+                                            }
+                                        </>
+                                }
                             </div>
 
                             <div className={classes.datadiv}>
@@ -237,7 +292,7 @@ const Share = () => {
                                     invitesData.map((data, index) => {
                                         return (
                                             <>
-                                                <ShareDiv key="index" data={data} del={del}/>
+                                                <ShareDiv key="index" data={data} del={del} />
                                             </>
                                         )
                                     })
@@ -250,5 +305,6 @@ const Share = () => {
         </>
     );
 };
+
 
 export default Share;

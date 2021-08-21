@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from '../../../context/axios';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link , Redirect} from 'react-router-dom';
 import { AuthContext } from '../../../context/context';
 import { getUser, getUserPurchasing } from '../../../context/fetch-service';
 import LOGO from '../../../assets/logo.png';
@@ -60,10 +60,11 @@ function Login() {
 					});
 					dispatch({
 						type: 'LOGIN',
-						payload: { token: login.data.token, user: user },
+						payload: { token: login.data.token, user: user, access_token: user.access_token && user.access_token.length > 0 ? user.access_token[0].access_token : null },
 					});
 					setLoader(false);
-					history.push('/');
+					history.createHref('/');
+					// return (<> <Redirect to"/" /> </>)
 				}
 			}
 		} catch (e) {

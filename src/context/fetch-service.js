@@ -7,7 +7,7 @@ export const getUser = async (token) => {
 			.get('/user')
 			.then((user) => {
 				resolve(user.data.user);
-				console.log("==================== THE USER ==================== " , user)
+				console.log('==================== THE USER ==================== ', user);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -49,6 +49,20 @@ export const getRevenue = async () => {
 			.get('/userRevenue')
 			.then((reve) => {
 				resolve(reve.data.allRevenus);
+			})
+			.catch((err) => {
+				console.log(err);
+				reject(err);
+			});
+	});
+};
+
+export const getCompany = async () => {
+	return new Promise((resolve, reject) => {
+		axios
+			.get('/mycompany')
+			.then((reve) => {
+				resolve(reve.data.mycompany);
 			})
 			.catch((err) => {
 				console.log(err);

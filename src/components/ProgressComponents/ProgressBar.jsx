@@ -5,8 +5,6 @@ import { CircularProgressbarWithChildren, buildStyles } from "react-circular-pro
 import "./CSS/ProgressBar.scss";
 
 const ProgressBar = ({ props }) => {
-    var linecolor = 80;
-
     return (
         <>
             <div className="progressbar_container">
@@ -20,7 +18,6 @@ const ProgressBar = ({ props }) => {
                             pathTransitionDuration: 0.5,
                             pathColor: props.progress < 30 ? `red` : props.progress < 55 ? "#d9588c" : props.progress < 75 ? "#58b7d9" : "#58d99b",
                             textColor: '#f88',
-                            // trailColor: '#d6d6d6',
                             backgroundColor: '#3e98c7',
                         })}
                     >

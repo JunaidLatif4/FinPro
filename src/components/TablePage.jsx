@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Table } from 'react-bootstrap'
-
 import './CSS/TablePage.scss'
 
 
@@ -73,9 +71,7 @@ const TablePage = () => {
                             <td className="total">25%</td>
                         </td>
                     </tr>
-                {/* </table> */}
                     <br />
-                {/* <table > */}
                     <tr>
                         <th>Expenses</th>
                         <th>2021</th>
@@ -122,9 +118,7 @@ const TablePage = () => {
                             <td className="total">25%</td>
                         </td>
                     </tr>
-                {/* </table> */}
                     <br />
-                {/* <table> */}
                     <tr>
                         <th className="headingtd"> Operating Profit </th>
                         <th className="noborder">
@@ -161,5 +155,6 @@ const TablePage = () => {
         </>
     )
 }
+
 
 export default TablePage

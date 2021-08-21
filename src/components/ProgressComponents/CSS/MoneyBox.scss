@@ -7,10 +7,26 @@
   position: relative;
   padding: 1.5rem;
   display: inline-block;
+
+  @media only screen and (max-width: 1800px) {
+    padding: 1.3rem;
+  }
+  @media only screen and (max-width: 1550px) {
+    padding: 1rem;
+  }
+
   .img {
     position: absolute;
     right: 5%;
-    top: 35%;
+    top: 30%;
+    font-size: 2rem;
+
+    @media only screen and (max-width: 1550px) {
+      top: 25%;
+    }
+    @media only screen and (max-width: 1400px) {
+      font-size: 1.5rem;
+    }
   }
 
   .textfield {
@@ -22,6 +38,13 @@
       letter-spacing: 1px;
       margin: 0;
       color: #aaa;
+
+      @media only screen and (max-width: 1550px) {
+        font-size: 0.5rem;
+      }
+      @media only screen and (max-width: 1400px) {
+        font-size: 0.46rem;
+      }
     }
 
     .moneybox {
@@ -32,6 +55,16 @@
         margin: 0;
         font-size: 1.5rem;
         line-height: 10px;
+
+        @media only screen and (max-width: 1800px) {
+          font-size: 1.3rem;
+        }
+        @media only screen and (max-width: 1550px) {
+          font-size: 1.1rem;
+        }
+        @media only screen and (max-width: 1400px) {
+          font-size: 1rem;
+        }
       }
       p {
         background-color: rgba(23, 219, 23, 0.5);
@@ -42,6 +75,15 @@
         margin-left: 1rem;
         font-size: 0.6rem;
         color: #066706;
+
+        @media only screen and (max-width: 1650px) {
+          font-size: 0.5rem;
+          margin-left: 0.7rem;
+        }
+        @media only screen and (max-width: 1400px) {
+          font-size: 0.4rem;
+          margin-left: 0.5rem;
+        }
       }
       .warning {
         color: red;
@@ -51,8 +93,8 @@
   }
 }
 
-.moneyforecast{
+.moneyforecast {
   display: flex;
-    justify-content: space-between;
-    margin: 2rem 0;
+  justify-content: space-between;
+  margin: 2rem 0;
 }

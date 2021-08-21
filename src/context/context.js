@@ -1,5 +1,5 @@
 import React from 'react';
-import { LOGIN, LOGOUT, SET_INPUTS, SET_REVENUE, SET_TABLE_DATA, SET_USER, SET_BILLING, SET_INVOICES, SET_PURCHASING, VIEW_DATA, VIEW_REPORTS } from './types';
+import { LOGIN, LOGOUT, SET_INPUTS, SET_REVENUE, SET_TABLE_DATA, SET_USER, SET_BILLING, SET_INVOICES, SET_PURCHASING, VIEW_DATA, VIEW_REPORTS, SET_ACCESS_TOKEN } from './types';
 import { getMonthName, setQuarterLabel, getQuarterEbit, getQuarterExpenses, getYearExpenses, getYearEbit } from '../utils/utils';
 import moment from 'moment';
 import { colors } from './colors';
@@ -7,7 +7,16 @@ export const initialState = {
 	isAuthenticated: localStorage.getItem('finProtoken') ? true : false,
 	user: localStorage.getItem('finProUser') ? JSON.parse(localStorage.getItem('finProUser')) : null,
 	token: localStorage.getItem('finProtoken') ? localStorage.getItem('finProtoken') : null,
+	access_token: localStorage.getItem('access_token') ? localStorage.getItem('access_token') : null,
 	billingDetails: {},
+	stepperData: {
+		bussinessModel: 'SAAS',
+		companyStage: {
+			revenue: '',
+			noOfEmployess: '',
+		},
+		access_token: null,
+	},
 	data: {},
 	invoices: [],
 	revenues: [],
@@ -48,16 +57,25 @@ export const reducer = (state, action) => {
 		case LOGIN:
 			localStorage.setItem('finProtoken', action.payload.token);
 			localStorage.setItem('finProUser', JSON.stringify(action.payload.user));
+			localStorage.setItem('access_token', JSON.stringify(action.payload.access_token));
 			return {
 				...state,
 				isAuthenticated: true,
 				user: action.payload.user,
 				token: action.payload.token,
+				access_token: action.payload.access_token,
+			};
+		case SET_ACCESS_TOKEN:
+			localStorage.setItem('access_token', JSON.stringify(action.payload.access_token));
+			return {
+				...state,
+				access_token: action.payload.access_token,
 			};
 		case LOGOUT:
 			localStorage.removeItem('finProtoken');
 			localStorage.removeItem('finProUser');
 			localStorage.removeItem('finProPurch');
+			localStorage.removeItem('access_token');
 			return {
 				...state,
 				isAuthenticated: false,
@@ -114,6 +132,17 @@ export const reducer = (state, action) => {
 				...state,
 				tableData: newTableData,
 			};
+		case 'SET_BUSINESS_MODEL':
+			console.log(action.payload);
+			let type = action.payload.type;
+			let value = action.payload.value;
+			return {
+				...state,
+				stepperData: {
+					...state.stepperData,
+					[type]: value,
+				},
+			};
 		default:
 			return state;
 	}
@@ -144,7 +173,7 @@ function setData(type, state) {
 						data[id].push(parseFloat(d.price * d.purchasers * 12));
 					}
 					for (let j = 0; j < yearData.labels.length; j++) {
-						data[id].push(parseFloat(data[id][j]) + (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * parseFloat(data[id][j]));
+						data[id].push(parseFloat(data[id][j]) + ((user && user.grate ? user.grate : user.email) / 100 || 50 / 100) * parseFloat(data[id][j]));
 					}
 				});
 			}
@@ -192,7 +221,7 @@ function setData(type, state) {
 						dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq[id][j]));
+						dataq[id].push(parseFloat(dataq[id][j]) + ((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100 || 0 / 100) * parseFloat(dataq[id][j]));
 					}
 				});
 
@@ -304,7 +333,7 @@ function setData(type, state) {
 						datam[id].push(parseFloat(d.price * d.purchasers));
 					}
 					for (let j = 0; j < monthData.labels.length; j++) {
-						datam[id].push(parseFloat(datam[id][j]) + (((user && user.grateMonthly ? user.grateMonthly : user.email) / 100) || (0 / 100)) * parseFloat(datam[id][j]));
+						datam[id].push(parseFloat(datam[id][j]) + ((user && user.grateMonthly ? user.grateMonthly : user.email) / 100 || 0 / 100) * parseFloat(datam[id][j]));
 					}
 				});
 				for (let i = 0; i < mdata.length; i++) {
@@ -378,7 +407,7 @@ function setReports(type, state) {
 				if (j === 0) {
 					data[0].push(totalRev);
 				} else {
-					totalRev += (((user && user.grate ? user.grate : user.email) / 100) || (50 / 100)) * totalRev;
+					totalRev += ((user && user.grate ? user.grate : user.email) / 100 || 50 / 100) * totalRev;
 					data[0].push(totalRev);
 				}
 			}
@@ -447,7 +476,7 @@ function setReports(type, state) {
 							dataq[id].push(parseFloat(d.price * d.purchasers * 4));
 						}
 						for (let j = 0; j < quarterData.labels.length; j++) {
-							dataq[id].push(parseFloat(dataq[id][j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq[id][j]));
+							dataq[id].push(parseFloat(dataq[id][j]) + ((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100 || 0 / 100) * parseFloat(dataq[id][j]));
 						}
 					}
 				});
@@ -521,7 +550,7 @@ function setReportTableData(state) {
 						dataq.quarterRevenues.push(parseFloat(d.price * d.purchasers * 4));
 					}
 					for (let j = 0; j < quarterData.labels.length; j++) {
-						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + (((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100) || (0 / 100)) * parseFloat(dataq.quarterRevenues[j]));
+						dataq.quarterRevenues.push(parseFloat(dataq.quarterRevenues[j]) + ((user && user.grateQuarterly ? user.grateQuarterly : user.email) / 100 || 0 / 100) * parseFloat(dataq.quarterRevenues[j]));
 					}
 				}
 			});

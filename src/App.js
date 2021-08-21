@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.css';
 import Routes from './routes';
+
 import { AuthContext, initialState, reducer } from './context/context';
 import { getCurrentUser } from './service';
-require('./RoundedBars');
+// require('./RoundedBars');
+
+import './App.css';
 
 function App() {
 	const [state, dispatch] = React.useReducer(reducer, initialState);

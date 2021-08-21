@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
 
 import { ButtonGroup, Button } from 'react-bootstrap';
 import { getRevenue } from '../../context/fetch-service';
-import { getInputs } from '../../context/fetch-service';
 
 import { CSVLink } from 'react-csv';
 import jsPDF from 'jspdf';
@@ -20,7 +19,10 @@ import ExpenseInputs from './ExpenseInputs';
 import numeral from 'numeral';
 import StartingCapitalInput from './StartingCapitalInput';
 
-import MoneyBoxPage from '../ProgressComponents/MoneyBox';
+import { MoneyBox } from '../ProgressComponents/MoneyBox'
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import TimelineIcon from '@material-ui/icons/Timeline';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,7 +41,6 @@ const BootstrapInput = withStyles((theme) => ({
         borderRadius: 4,
         position: 'relative',
         backgroundColor: '#f8f9fa',
-        // border: '1px solid #ced4da',
         fontSize: 16,
         padding: '10px 26px 10px 12px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
@@ -89,7 +90,6 @@ const ForecastsBarChart = () => {
                 payload: revenues,
             });
             setTimeout(() => {
-                // console.log(revenues);
                 if (revenues && revenues.revenuInputs && revenues.revenuInputs.length > 0) {
                     dispatch({ type: 'VIEW_DATA', payload: chartValue });
                 }
@@ -141,11 +141,47 @@ const ForecastsBarChart = () => {
             doc.save(`report_${dateStr}.pdf`);
         }
     };
-    console.log(userSub);
+
+    const MoneyBoxForecastData = [
+        // {
+        //   title: "MARKITING SPEND FORECAST",
+        //   money: "789,000",
+        //   percent: "+3.19",
+        //   icon: TrendingUpIcon
+        // },
+        {
+            title: "REVENUE FORECAST",
+            money: "8,384,210",
+            percent: "+10.19",
+            icon: EqualizerIcon
+        },
+        {
+            title: "SPENDING FORECAST",
+            money: "459,033",
+            percent: "-4.29",
+            icon: TimelineIcon
+        },
+        {
+            title: "STARTING CAPITAL",
+            money: "799,380",
+            percent: "+9.30",
+            icon: AttachMoneyIcon
+        },
+    ]
 
     return userSub && userSub.length > 0 && Date.parse(new Date()) < Date.parse(new Date(userSub[0].purchaseDate)) + (userSub[0].planType === 'purchased' ? 30 : 7) * 24 * 60 * 60 * 1000 ? (
         <>
-            <MoneyBoxPage />
+            <div className="moneyforecast">
+                {
+                    MoneyBoxForecastData.map((data, index) => {
+                        return (
+                            <>
+                                <MoneyBox key={index} props={data} />
+                            </>
+                        )
+                    })
+                }
+            </div>
             <div className='container-fluid'>
                 <div className='row'>
                     <div className='col-12 col-xl-12'>
@@ -221,12 +257,10 @@ const ForecastsBarChart = () => {
                                                     label: function (tooltipItem, data) {
                                                         let value;
                                                         data['datasets'].forEach((d) => {
-                                                            // console.log(d['data'][tooltipItem['index']], tooltipItem);
                                                             if (d['data'][tooltipItem['index']] === Number(tooltipItem.value)) {
                                                                 value = (user.currency || "$") + ' ' + parseInt(d['data'][tooltipItem['index']].toFixed(2)).toLocaleString(2);
                                                             }
                                                         });
-                                                        // console.log(value);
                                                         return value;
                                                     },
                                                     afterLabel: function (tooltipItem, data) { },
@@ -257,7 +291,6 @@ const ForecastsBarChart = () => {
                                                         },
                                                         gridLines: {
                                                             borderDash: [2],
-                                                            // zeroLineColor: 'transparent',
                                                             zeroLineWidth: 3,
                                                             tickMarkLength: 10,
                                                             lineWidth: 3,

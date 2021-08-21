@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { Button, makeStyles, Divider } from '@material-ui/core'
 import EqualizerIcon from '@material-ui/icons/Equalizer';
@@ -15,12 +15,12 @@ import Sales from '../views/Sales/Sales'
 import Marketing from '../views/Marketing/Marketing'
 import RD from '../views/RandD/RandD'
 import GA from '../views/GandA/GandA'
+
 import './CSS/ForecastsPage.scss'
 
 const Styles = makeStyles({
 
     link: {
-        padding: '.8rem 1rem',
         color: "black"
     },
 
@@ -31,19 +31,47 @@ const Styles = makeStyles({
         fontWeight: 'bold',
         fontFamily: 'cerebri sans',
         fontSize: '1rem',
+        padding: '.8rem 1rem',
     }
 })
-const ForecastNavBtn = ({ props }) => {
-    const classes = Styles();
-    return (
-        <>
-            <Button startIcon={props.icon} className={classes.btn}><NavLink to={`/forecasts/${props.link}`} className={classes.link} > {props.title}  </NavLink></Button>
-
-        </>
-    )
-}
-
 const ForcastsPage = () => {
+    const [component, setComponent] = useState("revenue")
+
+    const ForecastNavBtn = ({ props }) => {
+        const classes = Styles();
+
+        const changeComponent = () => {
+            setComponent(props.link)
+        }
+        return (
+            <>
+                {
+                    props.link == 'reports' ?
+                        <Button startIcon={props.icon} className={classes.btn} id="btn"> <NavLink to="/reports" className={classes.link}> {props.title} </NavLink> </Button> :
+                        <Button onClick={changeComponent} startIcon={props.icon} className={classes.btn} id="btn"> {props.title} </Button>
+
+                }
+            </>
+        )
+    }
+
+
+    const AllComponents = (active) => {
+        switch (active) {
+            case "revenue":
+                return <ForecastsBarChart />;
+            case "sales":
+                return <Sales />;
+            case "marketing":
+                return <Marketing />;
+            case "rd":
+                return <RD />;
+            case "ga":
+                return <GA />;
+            default:
+                return <ForecastsBarChart />;
+        }
+    }
 
     const ForecastsNavBtnData = [
         {
@@ -78,8 +106,6 @@ const ForcastsPage = () => {
         },
     ]
 
-
-
     return (
         <>
             <div className="forcastspage_container">
@@ -95,15 +121,7 @@ const ForcastsPage = () => {
                     }
                 </div>
                 <Divider />
-                <Switch>
-                    <Route exact path="/forecasts/revenue" component={ForecastsBarChart} />
-                    <Route exact path="/forecasts/sales" component={Sales} />
-                    <Route exact path="/forecasts/marketing" component={Marketing} />
-                    <Route exact path="/forecasts/rd" component={RD} />
-                    <Route exact path="/forecasts/ga" component={GA} />
-                    <Route exact path='/forecasts' render={() => <Redirect to='/forecasts/revenue' />} />
-                </Switch>
-
+                {AllComponents(component)}
             </div>
         </>
     )

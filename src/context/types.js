@@ -3,7 +3,7 @@ export const LOGOUT = 'LOGOUT';
 export const SET_USER = 'SET_USER';
 
 export const VIEW_DATA = 'VIEW_DATA';
-export const SET_TABLE_DATA = 'SET_TABLE_DATA'
+export const SET_TABLE_DATA = 'SET_TABLE_DATA';
 export const VIEW_REPORTS = 'VIEW_REPORTS';
 export const SET_BILLING = 'SET_BILLING';
 export const SET_PURCHASING = 'SET_PURCHASING';
@@ -15,3 +15,5 @@ export const GET_REVENUE = 'GET_REVENUE';
 export const SET_INPUTS = 'SET_INPUTS';
 
 export const Add_SALES = 'Add_SALES';
+
+export const SET_ACCESS_TOKEN = 'SET_ACCESS_TOKEN';

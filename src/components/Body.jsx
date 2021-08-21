@@ -3,6 +3,7 @@ import React from 'react'
 import Header from './Header'
 import SideBar from './SideBar'
 import Stepper from './Stepper'
+
 import './CSS/Body.scss'
 
 const Body = () => {
@@ -14,7 +15,7 @@ const Body = () => {
                     <Header />
                     <div className="data">
                         <h1> Let's get your company set up </h1>
-                        <Stepper/>
+                        <Stepper />
                     </div>
                 </div>
             </div>
