@@ -7,6 +7,7 @@ export const getUser = async (token) => {
 			.get('/user')
 			.then((user) => {
 				resolve(user.data.user);
+				console.log("==================== THE USER ==================== " , user)
 			})
 			.catch((err) => {
 				console.log(err);
